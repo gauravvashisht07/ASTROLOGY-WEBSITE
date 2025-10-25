@@ -15,8 +15,8 @@
 
 # Redirect www to non-www
 [[redirects]]
-  from = "https://www.astrovision.in/*"
-  to = "https://astrovision.in/:splat"
+  from = "https://www.astronavira.in/*"
+  to = "https://astronavira.in/:splat"
   status = 301
   force = true
 

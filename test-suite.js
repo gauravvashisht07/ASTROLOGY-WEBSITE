@@ -1,6 +1,6 @@
 // test-suite.js
 async function runTests() {
-    console.log('Starting AstroVision Website Tests...');
+    console.log('Starting ASTRONAVIRA Website Tests...');
 
     // Test Form Submission
     async function testBookingForm() {

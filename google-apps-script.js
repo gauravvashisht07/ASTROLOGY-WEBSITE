@@ -26,7 +26,7 @@ function doPost(e) {
   const emailBody = `
     Dear ${data.name},
     
-    Thank you for booking a consultation with AstroVision. We have received your booking for ${data.serviceType}.
+    Thank you for booking a consultation with ASTRONAVIRA. We have received your booking for ${data.serviceType}.
     
     Your consultation details:
     Date of Birth: ${data.dob}
@@ -36,12 +36,12 @@ function doPost(e) {
     Your report will be ready within 48 hours. We will contact you for any additional information if needed.
     
     Best regards,
-    AstroVision Team
+    ASTRONAVIRA Team
   `;
   
   MailApp.sendEmail({
     to: data.email,
-    subject: "AstroVision Consultation Booking Confirmation",
+  subject: "ASTRONAVIRA Consultation Booking Confirmation",
     body: emailBody
   });
   

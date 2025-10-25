@@ -140,7 +140,7 @@ bookingForm.addEventListener('submit', async (e) => {
                 to_name: formObject.name,
                 to_email: formObject.email,
                 service_type: formObject.serviceType,
-                message: "Thank you for booking with AstroVision. Your report will be ready within 48 hours."
+            message: "Thank you for booking with ASTRONAVIRA. Your report will be ready within 48 hours."
             }
         );
 
@@ -163,7 +163,7 @@ function initializeRazorpayPayment(amount, orderId) {
         key: "YOUR_RAZORPAY_KEY_ID", // Enter the Key ID generated from the Dashboard
         amount: amount * 100, // Amount is in currency subunits
         currency: "INR",
-        name: "AstroVision",
+    name: "ASTRONAVIRA",
         description: "Gemstone Purchase",
         image: "your-logo-url.png",
         order_id: orderId,
