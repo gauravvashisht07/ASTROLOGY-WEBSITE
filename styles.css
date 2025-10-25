@@ -287,10 +287,13 @@ h1, h2, h3 {
     text-align: center;
 }
 
-.gemstones h2 {
+.section-title {
     color: white;
-    margin-bottom: 1rem;
-    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    font-size: 2.8rem;
+    font-family: 'Cinzel', serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 .gemstone-intro {
@@ -298,12 +301,14 @@ h1, h2, h3 {
     max-width: 800px;
     margin-left: auto;
     margin-right: auto;
+    font-size: 1.2rem;
+    line-height: 1.6;
 }
 
 .gemstone-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2.5rem;
     max-width: 1200px;
     margin: 0 auto;
 }
@@ -314,52 +319,69 @@ h1, h2, h3 {
     overflow: hidden;
     transition: transform 0.3s ease;
     text-align: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 .gemstone-card:hover {
     transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
 }
 
-.gemstone-image {
+.gemstone-image-container {
     width: 100%;
     padding: 2rem;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.gemstone-image img {
+.gemstone-image-container img {
     width: 100%;
-    max-width: 300px;
+    max-width: 250px;
     height: auto;
+    object-fit: contain;
     border-radius: 10px;
 }
 
 .gemstone-card h3 {
     color: #4C1D95;
-    font-size: 1.8rem;
-    margin: 1rem 0;
+    font-size: 2rem;
+    margin: 0.5rem 0;
     font-family: 'Cinzel', serif;
+    padding: 0 1rem;
 }
 
 .gemstone-content {
-    padding: 0 2rem 2rem;
+    padding: 1.5rem 2rem 2rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
 }
 
 .gemstone-description {
     color: #4B5563;
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
     font-size: 1.1rem;
+    line-height: 1.6;
+    flex-grow: 1;
 }
 
 .pay-now-btn {
     background: #C2410C;
     color: white;
-    padding: 0.8rem 2.5rem;
+    padding: 1rem 3rem;
     border: none;
     border-radius: 25px;
     cursor: pointer;
     transition: all 0.3s ease;
     font-size: 1.1rem;
     font-weight: 500;
+    align-self: center;
+    margin-top: auto;
 }
 
 .pay-now-btn:hover {
@@ -371,6 +393,9 @@ h1, h2, h3 {
     margin-top: 3rem;
     font-size: 1.1rem;
     opacity: 0.9;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .pay-now-btn:hover {
