@@ -1,0 +1,20 @@
+{
+  "name": "astrovision",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "test": "node test-suite.js",
+    "optimize-images": "node scripts/optimize-images.js",
+    "build": "npm run optimize-images"
+  },
+  "dependencies": {
+    "@emailjs/browser": "^3.11.0",
+    "flatpickr": "^4.6.13"
+  },
+  "devDependencies": {
+    "sharp": "^0.32.5",
+    "imagemin": "^8.0.1",
+    "imagemin-mozjpeg": "^10.0.0",
+    "imagemin-webp": "^8.0.0"
+  }
+}

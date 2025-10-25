@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AstroVision Admin Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .admin-container {
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .bookings-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 2rem;
+            background: var(--card-background);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .bookings-table th,
+        .bookings-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--secondary-color);
+        }
+        
+        .bookings-table th {
+            background: var(--primary-color);
+            color: white;
+        }
+        
+        .status-pending {
+            color: #FFA500;
+            font-weight: bold;
+        }
+        
+        .status-completed {
+            color: #4CAF50;
+            font-weight: bold;
+        }
+        
+        .admin-controls {
+            margin-bottom: 2rem;
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .admin-controls button {
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background: var(--primary-color);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="admin-container">
+        <h1>AstroVision Admin Dashboard</h1>
+        
+        <div class="admin-controls">
+            <button onclick="refreshData()">Refresh Data</button>
+            <button onclick="exportToCSV()">Export to CSV</button>
+        </div>
+        
+        <table class="bookings-table">
+            <thead>
+                <tr>
+                    <th>Timestamp</th>
+                    <th>Name</th>
+                    <th>Service</th>
+                    <th>Contact</th>
+                    <th>DOB</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="bookingsData">
+                <!-- Data will be populated here -->
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        // Replace with your Google Apps Script Web App URL
+        const SCRIPT_URL = 'YOUR_GOOGLE_APPS_SCRIPT_URL';
+        
+        async function fetchBookings() {
+            try {
+                const response = await fetch(SCRIPT_URL + '?action=getBookings');
+                const data = await response.json();
+                displayBookings(data.bookings);
+            } catch (error) {
+                console.error('Error fetching bookings:', error);
+            }
+        }
+        
+        function displayBookings(bookings) {
+            const tbody = document.getElementById('bookingsData');
+            tbody.innerHTML = bookings.map(booking => `
+                <tr>
+                    <td>${new Date(booking.timestamp).toLocaleString()}</td>
+                    <td>${booking.name}</td>
+                    <td>${booking.serviceType}</td>
+                    <td>${booking.email}<br>${booking.phone}</td>
+                    <td>${booking.dob}</td>
+                    <td class="status-${booking.paymentStatus.toLowerCase()}">${booking.paymentStatus}</td>
+                    <td>
+                        <button onclick="updateStatus('${booking.id}', 'Completed')">Mark Complete</button>
+                    </td>
+                </tr>
+            `).join('');
+        }
+        
+        function refreshData() {
+            fetchBookings();
+        }
+        
+        function exportToCSV() {
+            window.open(SCRIPT_URL + '?action=exportCSV');
+        }
+        
+        // Initial load
+        fetchBookings();
+    </script>
+</body>
+</html>

@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AstroVision – Personalized Astrology & Gemstone Consultation</title>
+    <meta name="description" content="Book your astrology consultation & get gemstone recommendations within 48 hours. Expert Vedic astrology readings, birth chart analysis, and personalized gemstone guidance.">
+    <meta name="keywords" content="astrology, gemstone consultation, kundli, horoscope, vedic astrology, birth chart analysis, transit predictions, relationship compatibility, astrological gemstones">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://astrovision.com/">
+    <meta property="og:title" content="AstroVision – Personalized Astrology & Gemstone Consultation">
+    <meta property="og:description" content="Expert Vedic astrology readings and personalized gemstone recommendations. Get your detailed birth chart analysis within 48 hours.">
+    <meta property="og:image" content="https://astrovision.com/images/og-image.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://astrovision.com/">
+    <meta property="twitter:title" content="AstroVision – Personalized Astrology & Gemstone Consultation">
+    <meta property="twitter:description" content="Expert Vedic astrology readings and personalized gemstone recommendations. Get your detailed birth chart analysis within 48 hours.">
+    <meta property="twitter:image" content="https://astrovision.com/images/og-image.jpg">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://astrovision.com/">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon.png">
+    
+    <!-- Robots -->
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;800&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+</head>
+<body>
+    <!-- Header/Navbar -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">ASTROVISION 🌙</div>
+            <div class="nav-links">
+                <a href="#services">Services</a>
+                <a href="#gemstones">Gemstones</a>
+                <a href="#about">About</a>
+                <a href="#testimonials">Testimonials</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <button class="theme-toggle">
+                <i class="fas fa-moon"></i>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Discover Your Celestial Path with Vedic Astrology</h1>
+            <p class="hero-subtitle">Unlock the wisdom of the stars through expert astrological guidance and transformative gemstone recommendations</p>
+            <p class="hero-description">Experience precise birth chart analysis, personalized gemstone consultation, and detailed future predictions from certified Vedic astrologers</p>
+            <button class="cta-button" data-service="Initial Consultation">Book Your Consultation</button>
+        </div>
+        <div class="hero-overlay"></div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <h2>Expert Astrological Services</h2>
+        <p class="section-intro">Discover comprehensive astrological insights tailored to your unique birth chart and life path</p>
+        <div class="services-grid">
+            <div class="service-card">
+                <i class="fas fa-star"></i>
+                <h3>Birth Chart Analysis</h3>
+                <p class="service-description">Unlock deep insights from your birth chart (Kundli) through detailed planetary positions and house analysis. Understand your life purpose, career path, and inherent strengths.</p>
+                <ul class="service-features">
+                    <li>Complete Kundli analysis</li>
+                    <li>Career & life purpose guidance</li>
+                    <li>Personality insights</li>
+                    <li>48-hour delivery</li>
+                </ul>
+                <div class="service-price">$149</div>
+                <button class="book-now-btn" data-service="Birth Chart Analysis">Book Now</button>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-moon"></i>
+                <h3>Transit Predictions</h3>
+                <p class="service-description">Navigate upcoming planetary movements and their influences on your life. Get prepared for opportunities and challenges in the next 12 months.</p>
+                <ul class="service-features">
+                    <li>Detailed transit analysis</li>
+                    <li>Monthly predictions</li>
+                    <li>Favorable periods</li>
+                    <li>Remedial measures</li>
+                </ul>
+                <div class="service-price">$199</div>
+                <button class="book-now-btn" data-service="Transit Predictions">Book Now</button>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-heart"></i>
+                <h3>Relationship Compatibility</h3>
+                <p class="service-description">Evaluate relationship potential through Vedic compatibility analysis (Kundli Milan). Perfect for marriage matching or understanding partner dynamics.</p>
+                <ul class="service-features">
+                    <li>36 points Guna Milan</li>
+                    <li>Doshas analysis</li>
+                    <li>Compatibility report</li>
+                    <li>Relationship guidance</li>
+                </ul>
+                <div class="service-price">$129</div>
+                <button class="book-now-btn" data-service="Relationship Compatibility">Book Now</button>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-gem"></i>
+                <h3>Gemstone Consultation</h3>
+                <p class="service-description">Receive personalized gemstone recommendations based on your birth chart. Learn how specific gems can enhance positive planetary influences.</p>
+                <ul class="service-features">
+                    <li>Personalized recommendations</li>
+                    <li>Wearing instructions</li>
+                    <li>Quality guidelines</li>
+                    <li>Procurement advice</li>
+                </ul>
+                <div class="service-price">$179</div>
+                <button class="book-now-btn" data-service="Gemstone Consultation">Book Now</button>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-calendar-alt"></i>
+                <h3>Yearly Forecast</h3>
+                <p class="service-description">Get a comprehensive year-ahead prediction covering career, relationships, health, and finances. Plan your year with astrological insights.</p>
+                <ul class="service-features">
+                    <li>12-month predictions</li>
+                    <li>Major life areas covered</li>
+                    <li>Important dates</li>
+                    <li>Success strategies</li>
+                </ul>
+                <div class="service-price">$249</div>
+                <button class="book-now-btn" data-service="Yearly Forecast">Book Now</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Form Popup -->
+    <div class="popup-overlay" id="bookingPopup">
+        <div class="popup-content">
+            <button class="close-popup">&times;</button>
+            <h2>Book Consultation</h2>
+            <form id="bookingForm" class="booking-form">
+                <input type="hidden" id="serviceType" name="serviceType">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="dob">Date of Birth</label>
+                    <input type="text" id="dob" name="dob" required>
+                </div>
+                <div class="form-group">
+                    <label for="tob">Time of Birth</label>
+                    <input type="text" id="tob" name="tob" required>
+                </div>
+                <div class="form-group">
+                    <label for="pob">Place of Birth</label>
+                    <input type="text" id="pob" name="pob" required>
+                </div>
+                <div class="form-group">
+                    <label for="currentLocation">Current Location</label>
+                    <input type="text" id="currentLocation" name="currentLocation" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Additional Message</label>
+                    <textarea id="message" name="message" rows="4"></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Submit Booking</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Gemstone Section -->
+    <section id="gemstones" class="gemstones">
+        <h2>Astrological Gemstone Therapy</h2>
+        <div class="gemstone-intro">
+            <p>Harness the power of natural gemstones aligned with your birth chart's planetary positions. Our certified gemologists ensure authenticity and optimal energetic resonance.</p>
+        </div>
+        <div class="gemstone-grid">
+            <div class="gemstone-card">
+                <img src="https://via.placeholder.com/200x200" alt="Natural Ruby Gemstone">
+                <h3>Ruby (Manik)</h3>
+                <p class="gemstone-description">The Sun's stone, enhancing leadership qualities, self-confidence, and vitality. Ideal for individuals seeking career growth and authority.</p>
+                <ul class="gemstone-benefits">
+                    <li>Boosts self-confidence</li>
+                    <li>Enhances leadership qualities</li>
+                    <li>Improves health vitality</li>
+                </ul>
+                <div class="gemstone-price">Starting from $499</div>
+            </div>
+            <div class="gemstone-card">
+                <img src="https://via.placeholder.com/200x200" alt="Natural Blue Sapphire">
+                <h3>Blue Sapphire (Neelam)</h3>
+                <p class="gemstone-description">Saturn's gem, bringing stability, wisdom, and professional success. Recommended for career advancement and overcoming obstacles.</p>
+                <ul class="gemstone-benefits">
+                    <li>Professional growth</li>
+                    <li>Mental clarity</li>
+                    <li>Protection from negativity</li>
+                </ul>
+                <div class="gemstone-price">Starting from $599</div>
+            </div>
+            <div class="gemstone-card">
+                <img src="https://via.placeholder.com/200x200" alt="Natural Pearl">
+                <h3>Pearl (Moti)</h3>
+                <p class="gemstone-description">Moon's gemstone, promoting emotional balance, mental peace, and intuition. Perfect for artists and empaths.</p>
+                <ul class="gemstone-benefits">
+                    <li>Emotional balance</li>
+                    <li>Enhanced intuition</li>
+                    <li>Better relationships</li>
+                </ul>
+                <div class="gemstone-price">Starting from $299</div>
+            </div>
+        </div>
+        <div class="gemstone-note">
+            <p>All gemstones come with certification of authenticity and detailed wearing instructions based on your birth chart.</p>
+            <button class="cta-button" data-service="Gemstone Consultation">Get Personalized Recommendations</button>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials">
+        <h2>Client Testimonials</h2>
+        <div class="testimonial-carousel">
+            <div class="testimonial-card">
+                <p>"The gemstone consultation changed my life. I feel more balanced and energized."</p>
+                <cite>- Sarah M.</cite>
+            </div>
+            <div class="testimonial-card">
+                <p>"Incredibly accurate birth chart reading. Highly recommended!"</p>
+                <cite>- James R.</cite>
+            </div>
+            <div class="testimonial-card">
+                <p>"Professional, insightful, and truly enlightening experience."</p>
+                <cite>- Emma T.</cite>
+            </div>
+        </div>
+        <div class="carousel-dots">
+            <span class="dot active"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="about-content">
+            <img src="https://via.placeholder.com/400x400" alt="Dr. Arjun Sharma - Chief Astrologer at AstroVision" class="astrologer-img">
+            <div class="about-text">
+                <h2>About Dr. Arjun Sharma</h2>
+                <p class="astrologer-intro">With over 15 years of experience in Vedic astrology and gemstone consultation, Dr. Arjun Sharma combines ancient wisdom with modern scientific approach to provide precise astrological guidance.</p>
+                
+                <div class="credentials">
+                    <h3>Credentials & Expertise</h3>
+                    <ul>
+                        <li>Ph.D. in Vedic Astrology from Sanskrit University, Varanasi</li>
+                        <li>Member of the International Association of Professional Astrologers (IAPA)</li>
+                        <li>Certified Gemologist from Gemological Institute of India</li>
+                        <li>Author of "Modern Applications of Vedic Astrology"</li>
+                        <li>Featured expert on leading spiritual channels</li>
+                    </ul>
+                </div>
+
+                <div class="approach">
+                    <h3>My Approach</h3>
+                    <p>I believe in empowering individuals through accurate astrological insights and practical guidance. Every consultation is personalized, considering your unique birth chart and life circumstances. My recommendations are always practical, actionable, and aligned with modern lifestyles.</p>
+                </div>
+
+                <div class="achievement-stats">
+                    <div class="stat">
+                        <span class="number">15,000+</span>
+                        <span class="label">Satisfied Clients</span>
+                    </div>
+                    <div class="stat">
+                        <span class="number">98%</span>
+                        <span class="label">Accuracy Rate</span>
+                    </div>
+                    <div class="stat">
+                        <span class="number">15+</span>
+                        <span class="label">Years Experience</span>
+                    </div>
+                </div>
+                
+                <button class="secondary-button">Read Full Profile</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials">
+        <h2>Client Experiences</h2>
+        <div class="testimonial-carousel">
+            <div class="testimonial-card">
+                <div class="testimonial-rating">★★★★★</div>
+                <p>"Dr. Sharma's birth chart analysis was incredibly accurate. His gemstone recommendations made a noticeable difference in my career path. Within months of wearing the suggested Ruby, I received a promotion I'd been working toward."</p>
+                <cite>- Sarah Mitchell, Corporate Executive, London</cite>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-rating">★★★★★</div>
+                <p>"The relationship compatibility reading helped me understand my partner better. The insights were practical and the remedial measures suggested really helped improve our bond. Highly recommend the couple's consultation."</p>
+                <cite>- Raj Patel, Software Engineer, Mumbai</cite>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-rating">★★★★★</div>
+                <p>"I was skeptical at first, but the yearly forecast was so precise it helped me make better business decisions. The timing suggestions for major decisions were particularly helpful. Worth every penny!"</p>
+                <cite>- Emma Thompson, Entrepreneur, Sydney</cite>
+            </div>
+        </div>
+        <div class="carousel-dots">
+            <span class="dot active"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p><i class="fas fa-envelope"></i> contact@astrovision.com</p>
+                <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
+                <p><i class="fas fa-location-dot"></i> 123 Cosmic Lane, Universe City</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <a href="#services">Services</a>
+                <a href="#gemstones">Gemstones</a>
+                <a href="#about">About</a>
+                <a href="#testimonials">Testimonials</a>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-links">
+                    <a href="#" aria-label="Follow us on Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Follow us on Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="#" aria-label="Follow us on Twitter"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <div class="footer-tagline">
+                    <h3>Your destiny, decoded through the stars</h3>
+                    <p>Expert Vedic astrology consultations and authentic gemstone recommendations for life's journey</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 AstroVision. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="/privacy-policy">Privacy Policy</a>
+                <a href="/terms">Terms of Service</a>
+                <a href="/sitemap.xml">Sitemap</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
