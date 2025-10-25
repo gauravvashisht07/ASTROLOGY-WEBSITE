@@ -282,53 +282,95 @@ h1, h2, h3 {
 /* Gemstones Section */
 .gemstones {
     padding: 5rem 10%;
-    background: linear-gradient(135deg, var(--secondary-color) 0%, var(--primary-color) 100%);
+    background: #8B5CF6;
     color: white;
     text-align: center;
 }
 
 .gemstones h2 {
     color: white;
+    margin-bottom: 1rem;
+    font-size: 2.5rem;
+}
+
+.gemstone-intro {
     margin-bottom: 3rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .gemstone-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .gemstone-card {
-    background: var(--card-background);
-    border-radius: 15px;
+    background: white;
+    border-radius: 20px;
     overflow: hidden;
     transition: transform 0.3s ease;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .gemstone-card:hover {
-    transform: translateY(-10px);
+    transform: translateY(-5px);
 }
 
-.gemstone-card img {
+.gemstone-image {
     width: 100%;
-    height: 200px;
-    object-fit: cover;
+    padding: 2rem;
+}
+
+.gemstone-image img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    border-radius: 10px;
 }
 
 .gemstone-card h3 {
+    color: #4C1D95;
+    font-size: 1.8rem;
     margin: 1rem 0;
+    font-family: 'Cinzel', serif;
+}
+
+.gemstone-content {
+    padding: 0 2rem 2rem;
+}
+
+.gemstone-description {
+    color: #4B5563;
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
 }
 
 .pay-now-btn {
-    background: var(--accent-color);
+    background: #C2410C;
     color: white;
-    padding: 0.8rem 1.5rem;
+    padding: 0.8rem 2.5rem;
     border: none;
     border-radius: 25px;
     cursor: pointer;
     transition: all 0.3s ease;
-    font-size: 1rem;
-    margin-top: 1rem;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.pay-now-btn:hover {
+    background: #9A3412;
+    transform: scale(1.05);
+}
+
+.gemstone-note {
+    margin-top: 3rem;
+    font-size: 1.1rem;
+    opacity: 0.9;
 }
 
 .pay-now-btn:hover {
