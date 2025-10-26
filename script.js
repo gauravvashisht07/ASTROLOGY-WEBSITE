@@ -111,49 +111,99 @@ bookingPopup.addEventListener('click', (e) => {
     }
 });
 
-// Initialize EmailJS
-emailjs.init("YOUR_EMAILJS_USER_ID");
+// Initialize EmailJS with your public key
+emailjs.init("YOUR_EMAILJS_PUBLIC_KEY");
 
-// Google Apps Script Web App URL
-const SCRIPT_URL = 'YOUR_GOOGLE_APPS_SCRIPT_URL';
-
+// Google Apps Script Web App URL - Replace with your deployed web app URL
+const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxI9VN8UQ3rYM-UUFPsGdYwQU8MFoQEvklh48QMcRhH9tE92zidrg8zSMcvLALvW2D5TA/exec';
 // Handle form submission
 bookingForm.addEventListener('submit', async (e) => {
     e.preventDefault();
-    
-    const formData = new FormData(bookingForm);
-    const formObject = Object.fromEntries(formData);
-    
-    try {
-        // Send data to Google Sheet
-        const response = await fetch(SCRIPT_URL, {
-            method: 'POST',
-            body: JSON.stringify(formObject),
-            mode: 'no-cors'
-        });
 
-        // Send email confirmation using EmailJS
-        await emailjs.send(
-            "YOUR_EMAILJS_SERVICE_ID",
-            "YOUR_EMAILJS_TEMPLATE_ID",
-            {
-                to_name: formObject.name,
-                to_email: formObject.email,
-                service_type: formObject.serviceType,
-            message: "Thank you for booking with ASTRONAVIRA. Your report will be ready within 48 hours."
+    // Show loading state
+    const submitBtn = bookingForm.querySelector('.submit-btn');
+    const originalBtnText = submitBtn.textContent;
+    submitBtn.textContent = 'Processing...';
+    submitBtn.disabled = true;
+
+    try {
+        const formData = new FormData(bookingForm);
+
+        // Basic client-side validation
+        if (!formData.get('name') || !formData.get('email') || !formData.get('dob') || !formData.get('tob') || !formData.get('pob')) {
+            throw new Error('Please fill in all required fields');
+        }
+
+        // Use URLSearchParams to send application/x-www-form-urlencoded which avoids preflight in many cases
+        const params = new URLSearchParams();
+        for (const pair of formData.entries()) {
+            params.append(pair[0], pair[1]);
+        }
+
+        // Try a normal fetch first (CORS must be allowed by the Apps Script or same-origin)
+        let response;
+        try {
+            response = await fetch(SCRIPT_URL, {
+                method: 'POST',
+                body: params
+            });
+        } catch (err) {
+            // If fetch fails due to CORS in the browser, fallback to no-cors to at least send the request (opaque response)
+            console.warn('Fetch failed, retrying with no-cors mode (response will be opaque):', err);
+            await fetch(SCRIPT_URL, {
+                method: 'POST',
+                body: params,
+                mode: 'no-cors'
+            });
+            response = null; // opaque
+        }
+
+        // If response is available and readable, try to parse JSON and check status
+        if (response && response.ok) {
+            let result = { status: 'unknown' };
+            try {
+                result = await response.json();
+            } catch (e) {
+                // parsing failed — server may not return JSON
+                console.warn('Could not parse response JSON:', e);
             }
-        );
+
+            if (result.status && result.status !== 'success') {
+                throw new Error(result.message || 'Server returned an error');
+            }
+        }
+
+        // Send email confirmation (EmailJS) if configured
+        try {
+            await emailjs.send(
+                'YOUR_EMAILJS_SERVICE_ID',
+                'YOUR_EMAILJS_TEMPLATE_ID',
+                {
+                    to_name: formData.get('name'),
+                    to_email: formData.get('email'),
+                    service_type: formData.get('serviceType') || 'Consultation',
+                    message: "Thank you for booking with ASTRONAVIRA. Your report will be ready within 48 hours."
+                }
+            );
+        } catch (emailErr) {
+            console.warn('EmailJS send failed (check keys):', emailErr);
+            // Not a fatal error — booking may still be recorded in the sheet
+        }
 
         // Show success message
-        alert('Thank you for your booking! Please check your email for confirmation.');
-        
+        alert('Thank you for your booking! If you do not receive a confirmation email, please check your spam folder or contact us.');
+
         // Close popup and reset form
         bookingPopup.style.display = 'none';
         document.body.style.overflow = 'auto';
         bookingForm.reset();
     } catch (error) {
         console.error('Error submitting form:', error);
-        alert('There was an error processing your booking. Please try again.');
+        alert(error.message || 'There was an error processing your booking. Please try again.');
+    } finally {
+        // Reset button state
+        submitBtn.textContent = originalBtnText;
+        submitBtn.disabled = false;
     }
 });
 
@@ -185,17 +235,8 @@ function initializeRazorpayPayment(amount, orderId) {
     rzp.open();
 }
 
-// Add payment buttons to gemstone cards
-document.querySelectorAll('.gemstone-card').forEach(card => {
-    const payButton = document.createElement('button');
-    payButton.className = 'pay-now-btn';
-    payButton.textContent = 'Pay Now';
-    payButton.onclick = () => {
-        // In a real implementation, you would get the order ID from your server
-        initializeRazorpayPayment(999, 'dummy_order_id');
-    };
-    card.appendChild(payButton);
-});
+// Note: pay buttons are defined in HTML now. If you want dynamic buttons,
+// create them here but ensure HTML does not also include them to avoid duplicates.
 
 // Sticky navbar functionality
 const navbar = document.querySelector('.navbar');
