@@ -43,11 +43,11 @@ function doPost(e) {
       return sendResponse(400, `Missing required fields: ${missingFields.join(', ')}`);
     }
 
-    // Get the spreadsheet and specified sheet
-    // Replace SPREADSHEET_ID with your actual Google Sheet ID
-    const SPREADSHEET_ID = 'YOUR_SPREADSHEET_ID'; // Get this from your Google Sheet URL
-    const ss = SpreadsheetApp.openById(SPREADSHEET_ID);
-    let sheet = ss.getSheetByName(SHEET_NAME);
+  // Get the spreadsheet and specified sheet
+  // Using the spreadsheet ID provided by the user
+  const SPREADSHEET_ID = '1J-xBIJMp7dCOzR4c3dlmgfU-mR0vBaLBrL6nb_yalY8'; // Google Sheet ID
+  const ss = SpreadsheetApp.openById(SPREADSHEET_ID);
+  let sheet = ss.getSheetByName(SHEET_NAME);
     
     // Create the sheet if it doesn't exist
     if (!sheet) {
