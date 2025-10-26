@@ -111,11 +111,10 @@ bookingPopup.addEventListener('click', (e) => {
     }
 });
 
-// Initialize EmailJS with your public key
-emailjs.init("YOUR_EMAILJS_PUBLIC_KEY");
+// Email sending removed — focusing on sending form data to Google Sheets only
 
 // Google Apps Script Web App URL - Replace with your deployed web app URL
-const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzvI4go174xtDldTmmwbT0N7wmKCM2KR6_-mC4OsIpGZ3qSol4g4dvtIxBAGRRPCulCZA/exec';
+const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwGggC9lsVYZ0ynGnAXd4MOo0plAq2-su3Q8kEQufEX9FpzoGTTJKMUR9-bl1Qs8BYGdA/exec';
 // Handle form submission
 bookingForm.addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -183,25 +182,8 @@ bookingForm.addEventListener('submit', async (e) => {
             }
         }
 
-        // Send email confirmation (EmailJS) if configured
-        try {
-            await emailjs.send(
-                'YOUR_EMAILJS_SERVICE_ID',
-                'YOUR_EMAILJS_TEMPLATE_ID',
-                {
-                    to_name: formData.get('name'),
-                    to_email: formData.get('email'),
-                    service_type: formData.get('serviceType') || 'Consultation',
-                    message: "Thank you for booking with ASTRONAVIRA. Your report will be ready within 48 hours."
-                }
-            );
-        } catch (emailErr) {
-            console.warn('EmailJS send failed (check keys):', emailErr);
-            // Not a fatal error — booking may still be recorded in the sheet
-        }
-
-        // Show success message
-        alert('Thank you for your booking! If you do not receive a confirmation email, please check your spam folder or contact us.');
+        // Show success message (booking saved to Google Sheets)
+        alert('Thank you for your booking! Your booking has been recorded.');
 
         // Close popup and reset form
         bookingPopup.style.display = 'none';
