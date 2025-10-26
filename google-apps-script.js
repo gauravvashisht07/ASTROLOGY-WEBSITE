@@ -2,24 +2,38 @@
 function doPost(e) {
   try {
     // Define the sheet name where data will be stored
-    const SHEET_NAME = 'Bookings';  // You can change this to match your sheet name
+    const SHEET_NAME = 'Bookings';
     
-    // Log incoming data for debugging
-    console.log('Received data:', e.postData ? e.postData.contents : 'No post data', 
-                'Parameters:', e.parameter ? JSON.stringify(e.parameter) : 'No parameters');
-
-    // Parse the request data - support JSON and form-encoded posts
+    // Log the entire event object for debugging
+    console.log('=== doPost called ===');
+    console.log('Event object:', JSON.stringify(e));
+    
+    // Initialize data object
     var data = {};
-    if (e.postData && e.postData.contents) {
+    
+    // Check if we have post data
+    if (e && e.postData && e.postData.contents) {
+      console.log('Post data contents:', e.postData.contents);
       try {
+        // Try to parse as JSON first
         data = JSON.parse(e.postData.contents);
       } catch (err) {
-        // not JSON, fall back to parameters (form posts)
-        data = e.parameter || {};
+        // If not JSON, try to parse as URL-encoded
+        const params = e.postData.contents.split('&');
+        params.forEach(param => {
+          const [key, value] = param.split('=');
+          if (key && value) {
+            data[decodeURIComponent(key)] = decodeURIComponent(value);
+          }
+        });
       }
-    } else {
-      data = e.parameter || {};
+    } else if (e && e.parameter) {
+      // If no post data but we have parameters, use those
+      data = e.parameter;
     }
+    
+    // Log the parsed data
+    console.log('Parsed data:', JSON.stringify(data));
 
     // Validate required fields
     const requiredFields = ['name', 'email', 'dob', 'tob', 'pob', 'serviceType'];
@@ -30,7 +44,9 @@ function doPost(e) {
     }
 
     // Get the spreadsheet and specified sheet
-    const ss = SpreadsheetApp.getActiveSpreadsheet();
+    // Replace SPREADSHEET_ID with your actual Google Sheet ID
+    const SPREADSHEET_ID = 'YOUR_SPREADSHEET_ID'; // Get this from your Google Sheet URL
+    const ss = SpreadsheetApp.openById(SPREADSHEET_ID);
     let sheet = ss.getSheetByName(SHEET_NAME);
     
     // Create the sheet if it doesn't exist
