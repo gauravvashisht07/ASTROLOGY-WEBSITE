@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="1600" height="1600">
+  <defs>
+    <linearGradient id="g1" x1="0" x2="1">
+      <stop offset="0" stop-color="#FFD36E"/>
+      <stop offset="1" stop-color="#FF8A65"/>
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="none"/>
+  <!-- Decorative abstract Ganesh-inspired icon (stylized elephant head) -->
+  <g transform="translate(100,100) scale(0.8)">
+    <path d="M300 120 C260 80 200 60 150 90 C100 120 90 200 120 260 C150 320 220 350 300 340 C380 350 450 320 480 260 C510 200 500 120 450 90 C400 60 340 80 300 120 Z" fill="url(#g1)" opacity="0.95"/>
+    <ellipse cx="230" cy="220" rx="22" ry="30" fill="#6B2B9A"/>
+    <ellipse cx="370" cy="220" rx="22" ry="30" fill="#6B2B9A"/>
+    <path d="M300 280 C280 300 280 340 300 360 C320 340 320 300 300 280 Z" fill="#6B2B9A"/>
+    <!-- trunk -->
+    <path d="M300 320 C295 360 280 430 240 470 C220 490 210 520 220 540 C230 560 260 560 290 540 C320 520 360 480 370 440" stroke="#6B2B9A" stroke-width="18" stroke-linecap="round" fill="none" opacity="0.9"/>
+    <!-- crown dot -->
+    <circle cx="300" cy="80" r="6" fill="#FFF" opacity="0.9"/>
+  </g>
+</svg>

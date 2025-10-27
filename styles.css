@@ -456,13 +456,86 @@ h1, h2, h3 {
 /* About Section */
 .about {
     padding: 5rem 10%;
+    position: relative;
+    background: linear-gradient(135deg, rgba(255,255,255,0.97), rgba(255,255,255,0.93));
+    overflow: hidden;
+}
+
+.ganesh-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ganesh-image {
+    width: auto;
+    height: 140%;
+    opacity: 0.12;
+    object-fit: contain;
+    filter: blur(1px);
+    transform: scale(1.1);
+    transition: all 0.5s ease;
+}
+
+.ganesh-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at center, transparent, rgba(255,255,255,0.8));
+    z-index: 2;
 }
 
 .about-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    align-items: center;
+    position: relative;
+    z-index: 3;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.about-text {
+    background: rgba(255, 255, 255, 0.85);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(91,33,182,0.1);
+    backdrop-filter: blur(5px);
+}
+
+.about blockquote {
+    font-style: italic;
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    border-left: 4px solid var(--accent-color);
+    padding-left: 1rem;
+    margin: 1.5rem 0;
+}
+
+.about h4 {
+    color: var(--accent-color);
+    margin: 1rem 0;
+    font-family: 'Cinzel', serif;
+}
+
+.trust-points {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+}
+
+.trust-points li {
+    margin: 0.8rem 0;
+    font-size: 1.1rem;
+}
+
+.credentials p, .approach p {
+    margin-bottom: 1rem;
 }
 
 .astrologer-img {
@@ -512,20 +585,27 @@ footer {
     margin-bottom: 0.5rem;
 }
 
-.social-links {
-    display: flex;
-    gap: 1rem;
-}
-
-.social-links a {
-    font-size: 1.5rem;
-}
-
-.footer-bottom {
-    text-align: center;
-    padding-top: 2rem;
-    border-top: 1px solid rgba(255,255,255,0.1);
-}
+    .ganesh-image {
+        width: 70%;
+        max-width: 1100px;
+        height: auto;
+        opacity: 0.18;
+        object-fit: contain;
+        filter: blur(0.8px) saturate(1.05);
+        transform: translateY(-8%);
+        transition: all 0.5s ease;
+    }
+    .ganesh-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        /* subtle vignette so the center of the Ganesh art is visible */
+        background: radial-gradient(circle at center, rgba(255,255,255,0) 30%, rgba(255,255,255,0.28) 65%, rgba(255,255,255,0.55) 100%);
+        z-index: 2;
+        pointer-events: none;
+    }
 
 /* Responsive Design */
 @media (max-width: 768px) {
@@ -541,11 +621,56 @@ footer {
         font-size: 2.5rem;
     }
 
+    .about {
+        padding: 3rem 5%;
+    }
+
     .about-content {
         grid-template-columns: 1fr;
+        gap: 2rem;
     }
 
     .services-grid {
         grid-template-columns: 1fr;
     }
+
+    .ganesh-image {
+        width: 110%;
+        opacity: 0.12;
+        transform: translateY(-4%);
+    }
+}
+
+/* Dark-theme specific tweaks for About section (improve contrast) */
+[data-theme="dark"] .about {
+    background: linear-gradient(135deg, rgba(17,24,39,0.96), rgba(17,24,39,0.92));
+}
+
+[data-theme="dark"] .about-text {
+    background: rgba(15,23,42,0.6); /* semi-opaque dark card */
+    color: var(--text-color);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+    border: 1px solid rgba(255,255,255,0.03);
+    backdrop-filter: blur(6px);
+}
+
+[data-theme="dark"] .about-text h2,
+[data-theme="dark"] .about-text h3,
+[data-theme="dark"] .about-text h4 {
+    color: var(--primary-color);
+}
+
+[data-theme="dark"] .about blockquote {
+    color: #d6bcfa; /* lighter purple for quote text */
+    border-left-color: rgba(139,92,246,0.5);
+}
+
+[data-theme="dark"] .ganesh-overlay {
+    /* dark vignette so Ganesh art doesn't wash the text */
+    background: radial-gradient(circle at center, rgba(0,0,0,0.12) 30%, rgba(0,0,0,0.45) 100%);
+}
+
+[data-theme="dark"] .ganesh-image {
+    opacity: 0.10;
+    filter: blur(1px) saturate(0.9) brightness(0.95);
 }
