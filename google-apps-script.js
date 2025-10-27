@@ -92,12 +92,18 @@ function doPost(e) {
       Best regards,
       ASTRONAVIRA Team
     `;
-    
-    MailApp.sendEmail({
-      to: data.email,
-      subject: "ASTRONAVIRA Consultation Booking Confirmation",
-      body: emailBody
-    });
+    // Sending email can fail if the script isn't authorized or MailApp quota is reached.
+    // Wrap it in try/catch so a mail failure does not prevent the sheet append.
+    try {
+      MailApp.sendEmail({
+        to: data.email,
+        subject: "ASTRONAVIRA Consultation Booking Confirmation",
+        body: emailBody
+      });
+    } catch (mailErr) {
+      console.error('Failed to send confirmation email:', mailErr);
+      // Continue — email failure shouldn't stop the booking from being recorded
+    }
     
   return sendResponse(200, 'Booking successfully recorded');
     

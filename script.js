@@ -114,7 +114,8 @@ bookingPopup.addEventListener('click', (e) => {
 // Email sending removed — focusing on sending form data to Google Sheets only
 
 // Google Apps Script Web App URL - Replace with your deployed web app URL
-const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwGggC9lsVYZ0ynGnAXd4MOo0plAq2-su3Q8kEQufEX9FpzoGTTJKMUR9-bl1Qs8BYGdA/exec';
+// NOTE: Make sure this deployment is set to "Execute as: Me" and "Who has access: Anyone, even anonymous"
+const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzvI4go174xtDldTmmwbT0N7wmKCM2KR6_-mC4OsIpGZ3qSol4g4dvtIxBAGRRPCulCZA/exec';
 // Handle form submission
 bookingForm.addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -142,6 +143,7 @@ bookingForm.addEventListener('submit', async (e) => {
         // Try a normal fetch first (CORS must be allowed by the Apps Script or same-origin)
         let response;
         try {
+            console.log('Submitting form to', SCRIPT_URL);
             response = await fetch(SCRIPT_URL, {
                 method: 'POST',
                 headers: {
@@ -149,14 +151,21 @@ bookingForm.addEventListener('submit', async (e) => {
                 },
                 body: params.toString()
             });
+            console.log('Fetch response status:', response.status, response.statusText);
         } catch (err) {
             // If fetch fails due to CORS in the browser, fallback to no-cors to at least send the request (opaque response)
             console.warn('Fetch failed, retrying with no-cors mode (response will be opaque):', err);
-            await fetch(SCRIPT_URL, {
-                method: 'POST',
-                body: params,
-                mode: 'no-cors'
-            });
+            try {
+                await fetch(SCRIPT_URL, {
+                    method: 'POST',
+                    body: params.toString(),
+                    mode: 'no-cors'
+                });
+                console.log('Fallback no-cors POST sent (opaque response)');
+            } catch (fallbackErr) {
+                console.error('Fallback no-cors POST also failed:', fallbackErr);
+                throw fallbackErr;
+            }
             response = null; // opaque
         }
 

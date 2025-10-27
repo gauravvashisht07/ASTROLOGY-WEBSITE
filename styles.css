@@ -705,3 +705,27 @@ footer {
 .footer-bottom .footer-links a:hover {
   color: #ffcc66;              /* highlight color on hover */
 }
+
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&display=swap');
+
+.logo {
+  font-family: 'Cinzel', serif;
+  font-size: 2rem;                     /* adjust as needed */
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  background: linear-gradient(180deg, #a7c6ff, #d4179b);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-align: center;
+  display: inline-block;
+  text-shadow: 0 3px 10px rgba(212, 160, 23, 0.3);
+  transition: transform 0.3s ease, text-shadow 0.3s ease;
+  cursor: default;
+}
+
+.logo:hover {
+  transform: scale(1.05);
+  text-shadow: 0 4px 15px rgba(255, 215, 100, 0.5);
+}
