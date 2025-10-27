@@ -674,3 +674,34 @@ footer {
     opacity: 0.10;
     filter: blur(1px) saturate(0.9) brightness(0.95);
 }
+
+.footer-bottom {
+   /* dark elegant background */
+  color: #ccc;                 /* soft text color */
+  text-align: center;          /* center all content */
+  padding: 15px 0;             /* top-bottom spacing */
+  font-size: 14px;
+  border-top: 1px solid #222;  /* subtle divider */
+}
+
+.footer-bottom p {
+  margin: 0 0 8px 0;           /* small gap below the text */
+  color: #aaa;
+}
+
+.footer-bottom .footer-links {
+  display: flex;
+  justify-content: center;     /* center the link row */
+  gap: 20px;                   /* spacing between links */
+  flex-wrap: wrap;             /* wraps nicely on small screens */
+}
+
+.footer-bottom .footer-links a {
+  color: #ddd;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-bottom .footer-links a:hover {
+  color: #ffcc66;              /* highlight color on hover */
+}
