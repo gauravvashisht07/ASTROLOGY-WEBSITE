@@ -48,23 +48,34 @@ h1, h2, h3 {
     width: 100%;
     top: 0;
     z-index: 1000;
-    background: var(--navbar-background);
+    background:#0B0C10;
     backdrop-filter: blur(10px);
+    
 }
 
-.logo {
+/* The above code is defining styles for a logo element in CSS. It sets the font family to 'Cinzel'
+with a fallback to a serif font, font size to 1.5rem, font weight to 800, and color to a variable
+(--primary-color). */
+/* .logo {
     font-family: 'Cinzel', serif;
     font-size: 1.5rem;
+    
     font-weight: 800;
     color: var(--primary-color);
-}
+} */
+ .logo{
+    width: 180px;
+    height: 70px
+ }
 
 .nav-links a {
     color: var(--text-color);
     text-decoration: none;
     margin-left: 2rem;
     transition: color 0.3s ease;
+    color: #D4AF37;
 }
+
 
 .nav-links a:hover {
     color: var(--accent-color);
@@ -73,9 +84,10 @@ h1, h2, h3 {
 .theme-toggle {
     background: none;
     border: none;
-    color: var(--text-color);
+    color: #D4AF37;
     cursor: pointer;
     font-size: 1.2rem;
+    margin-left: 2rem;
 }
 
 /* Hero Section */
@@ -98,24 +110,31 @@ h1, h2, h3 {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(rgba(0,0,0,0.5), rgba(91,33,182,0.7));
+    background: linear-gradient(135deg, #0B0C10, #1C1F2A);
 }
 
 .hero-content {
     position: relative;
     z-index: 1;
     padding: 2rem;
+    
 }
 
 .hero h1 {
     font-size: 4rem;
     margin-bottom: 1rem;
-    color: white;
+    color:#D4AF37;
 }
-
+.hero-subtitle{
+ color: #d7bf6e;
+ 
+}
+.hero-description {
+   color: #d7bf6e;
+}
 .cta-button {
-    background-color: var(--accent-color);
-    color: white;
+    background-color:#D4AF37;
+    color:#0B0C10;
     padding: 1rem 2rem;
     border: none;
     border-radius: 50px;
@@ -127,37 +146,118 @@ h1, h2, h3 {
 
 .cta-button:hover {
     transform: translateY(-3px);
+    color:wh;
 }
 
 /* Services Section */
 .services {
     padding: 5rem 10%;
     text-align: center;
+    background-color: #1C1F2A;
+    box-shadow: rgba(212,175,55,0.2);
+    
+   
+
+          
+
 }
 
 .services h2 {
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
+    color: #D4AF37;
 }
 
 .services-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
+    /* Force two columns on wider viewports for a clean 2-in-row layout */
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem; /* slightly larger gap for better breathing room */
+    max-width: 1200px;
+    margin: 0 auto; /* center the grid */
+    align-items: stretch;
+    justify-items: center;
+}
+.section-intro{
+    margin-bottom: 3rem;
+     color: #d7bf6e;
+}
+/* From Uiverse.io by eslam-hany */ 
+.book {
+    position: relative;
+    border-radius: 10px;
+    /* Make the card fluid inside the grid column, but cap its width */
+    width: 100%;
+    max-width: 520px;
+    height: auto; /* allow content-based height to avoid overflow/overlap */
+    background-color: #24283A;
+  -webkit-box-shadow: 1px 1px 12px #000;
+  box-shadow: 1px 1px 12px #000;
+  -webkit-transform: preserve-3d;
+  -ms-transform: preserve-3d;
+  transform: preserve-3d;
+  -webkit-perspective: 2000px;
+  perspective: 2000px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  color: #000;
+    padding: 2rem; /* add inner spacing so inner text isn't flush to edges */
+    border: rgba(212,175,55,0.3);
+    
+
 }
 
-.service-card {
-    background: var(--card-background);
-    padding: 2rem;
-    border-radius: 15px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    transition: all 0.3s ease;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    min-height: 320px;
+.cover {
+  top: 0;
+  position: absolute;
+  background-color:#1C1F2A;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  cursor: pointer;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  -webkit-transform-origin: 0;
+  -ms-transform-origin: 0;
+  transform-origin: 0;
+  -webkit-box-shadow: 1px 1px 12px #000;
+  box-shadow: 1px 1px 12px #000;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+ border: rgba(212,175,55,0.3);
 }
 
-.service-card:hover {
+.book:hover .cover {
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  -webkit-transform: rotatey(-80deg);
+  -ms-transform: rotatey(-80deg);
+  transform: rotatey(-80deg);
+  color: #24283A;
+}
+.cover h3{
+    color:#D4AF37;
+}
+
+p {
+  font-size: 20px;
+  font-weight: bolder;
+}
+
+/* .service-card:hover {
     transform: translateY(-10px);
     box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 }
@@ -166,6 +266,11 @@ h1, h2, h3 {
     font-size: 2.5rem;
     color: var(--accent-color);
     margin-bottom: 1rem;
+} */
+
+.service-features{
+    color: #D4AF37;
+    margin-left: 50px;
 }
 
 .service-price {
@@ -176,8 +281,8 @@ h1, h2, h3 {
 }
 
 .book-now-btn {
-    background: var(--primary-color);
-    color: white;
+    background: #D4AF37;
+    color:#0B0C10;
     padding: 0.8rem 1.5rem;
     border: none;
     border-radius: 25px;
@@ -188,8 +293,7 @@ h1, h2, h3 {
 }
 
 .book-now-btn:hover {
-    background: var(--accent-color);
-    transform: scale(1.05);
+    background: #FFB347; box-shadow: 0 0 10px rgba(255,179,71,0.5)
 }
 
 /* Popup Styles */
@@ -413,6 +517,11 @@ h1, h2, h3 {
 .testimonials {
     padding: 5rem 10%;
     text-align: center;
+    background: #10121A;
+}
+
+.testimonials h2{
+    color: #D4AF37;
 }
 
 .testimonial-carousel {
@@ -421,7 +530,7 @@ h1, h2, h3 {
 }
 
 .testimonial-card {
-    background: var(--card-background);
+    background:#1C1F2A;
     padding: 2rem;
     border-radius: 15px;
     margin: 0 auto;
@@ -431,8 +540,11 @@ h1, h2, h3 {
 .testimonial-card cite {
     display: block;
     margin-top: 1rem;
-    color: var(--accent-color);
+    color:#FFB347;
     font-style: normal;
+}
+.testimonial-card p{
+    color:#E0E0E0;
 }
 
 .carousel-dots {
@@ -457,7 +569,7 @@ h1, h2, h3 {
 .about {
     padding: 5rem 10%;
     position: relative;
-    background: linear-gradient(135deg, rgba(255,255,255,0.97), rgba(255,255,255,0.93));
+    background: #10121A;
     overflow: hidden;
 }
 
@@ -498,16 +610,32 @@ h1, h2, h3 {
     z-index: 3;
     max-width: 1200px;
     margin: 0 auto;
+     background:#141622;
+     border: rgba(212,175,55,0.25);
 }
 
 .about-text {
-    background: rgba(255, 255, 255, 0.85);
+  
     padding: 2rem;
     border-radius: 15px;
     box-shadow: 0 10px 30px rgba(91,33,182,0.1);
     backdrop-filter: blur(5px);
 }
-
+.about-text h2{
+    color:#D4AF37;
+}
+.astrologer-intro{
+    color: #E6E6E6;
+}
+.credentials h3{
+    color: #A48BFF;
+}
+.credentials h4{
+    color: #FFB347;
+}
+.approach h3{
+    color: #F9C74F;
+}
 .about blockquote {
     font-style: italic;
     font-size: 1.2rem;
@@ -532,15 +660,23 @@ h1, h2, h3 {
 .trust-points li {
     margin: 0.8rem 0;
     font-size: 1.1rem;
+    color: #D4AF37;
 }
 
 .credentials p, .approach p {
     margin-bottom: 1rem;
+    color: #E6E6E6;
 }
 
+.credentials li{
+    color:#E6E6E6 ;
+}
 .astrologer-img {
     width: 100%;
     border-radius: 15px;
+}
+.achievement-stats h3{
+    color: #FFB347;
 }
 
 .secondary-button {
@@ -561,7 +697,7 @@ h1, h2, h3 {
 
 /* Footer */
 footer {
-    background: var(--primary-color);
+    background: #0B0C10;
     color: white;
     padding: 4rem 10% 2rem;
 }
@@ -571,6 +707,7 @@ footer {
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 2rem;
     margin-bottom: 2rem;
+    color: #B0B3B8;
 }
 
 .footer-section h3 {
@@ -584,7 +721,9 @@ footer {
     display: block;
     margin-bottom: 0.5rem;
 }
-
+.social-links:hover{
+    color:#D4AF37;
+}
     .ganesh-image {
         width: 70%;
         max-width: 1100px;
