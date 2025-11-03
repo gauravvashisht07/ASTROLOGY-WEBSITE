@@ -33,7 +33,9 @@ body {
     transition: background-color 0.3s ease;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
     font-family: 'Cinzel', serif;
     color: var(--primary-color);
 }
@@ -48,9 +50,9 @@ h1, h2, h3 {
     width: 100%;
     top: 0;
     z-index: 1000;
-    background:#0B0C10;
+    background: #0B0C10;
     backdrop-filter: blur(10px);
-    
+
 }
 
 /* The above code is defining styles for a logo element in CSS. It sets the font family to 'Cinzel'
@@ -63,10 +65,10 @@ with a fallback to a serif font, font size to 1.5rem, font weight to 800, and co
     font-weight: 800;
     color: var(--primary-color);
 } */
- .logo{
+.logo {
     width: 180px;
     height: 70px
- }
+}
 
 .nav-links a {
     color: var(--text-color);
@@ -117,24 +119,27 @@ with a fallback to a serif font, font size to 1.5rem, font weight to 800, and co
     position: relative;
     z-index: 1;
     padding: 2rem;
-    
+
 }
 
 .hero h1 {
     font-size: 4rem;
     margin-bottom: 1rem;
-    color:#D4AF37;
+    color: #D4AF37;
 }
-.hero-subtitle{
- color: #d7bf6e;
- 
+
+.hero-subtitle {
+    color: #d7bf6e;
+
 }
+
 .hero-description {
-   color: #d7bf6e;
+    color: #d7bf6e;
 }
+
 .cta-button {
-    background-color:#D4AF37;
-    color:#0B0C10;
+    background-color: #D4AF37;
+    color: #0B0C10;
     padding: 1rem 2rem;
     border: none;
     border-radius: 50px;
@@ -146,7 +151,7 @@ with a fallback to a serif font, font size to 1.5rem, font weight to 800, and co
 
 .cta-button:hover {
     transform: translateY(-3px);
-    color:wh;
+    color: wh;
 }
 
 /* Services Section */
@@ -154,11 +159,11 @@ with a fallback to a serif font, font size to 1.5rem, font weight to 800, and co
     padding: 5rem 10%;
     text-align: center;
     background-color: #1C1F2A;
-    box-shadow: rgba(212,175,55,0.2);
-    
-   
+    box-shadow: rgba(212, 175, 55, 0.2);
 
-          
+
+
+
 
 }
 
@@ -171,94 +176,136 @@ with a fallback to a serif font, font size to 1.5rem, font weight to 800, and co
     display: grid;
     /* Force two columns on wider viewports for a clean 2-in-row layout */
     grid-template-columns: repeat(2, 1fr);
-    gap: 2.5rem; /* slightly larger gap for better breathing room */
+    gap: 2.5rem;
+    /* slightly larger gap for better breathing room */
     max-width: 1200px;
-    margin: 0 auto; /* center the grid */
+    margin: 0 auto;
+    /* center the grid */
     align-items: stretch;
     justify-items: center;
 }
-.section-intro{
+
+.section-intro {
     margin-bottom: 3rem;
-     color: #d7bf6e;
+    color: #d7bf6e;
 }
-/* From Uiverse.io by eslam-hany */ 
+
+/* From Uiverse.io by eslam-hany */
 .book {
     position: relative;
     border-radius: 10px;
     /* Make the card fluid inside the grid column, but cap its width */
     width: 100%;
     max-width: 520px;
-    height: auto; /* allow content-based height to avoid overflow/overlap */
+    height: auto;
+    /* allow content-based height to avoid overflow/overlap */
     background-color: #24283A;
-  -webkit-box-shadow: 1px 1px 12px #000;
-  box-shadow: 1px 1px 12px #000;
-  -webkit-transform: preserve-3d;
-  -ms-transform: preserve-3d;
-  transform: preserve-3d;
-  -webkit-perspective: 2000px;
-  perspective: 2000px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  color: #000;
-    padding: 2rem; /* add inner spacing so inner text isn't flush to edges */
-    border: rgba(212,175,55,0.3);
-    
+    -webkit-box-shadow: 1px 1px 12px #000;
+    box-shadow: 1px 1px 12px #000;
+    -webkit-transform: preserve-3d;
+    -ms-transform: preserve-3d;
+    transform: preserve-3d;
+    -webkit-perspective: 2000px;
+    perspective: 2000px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    color: #000;
+    padding: 2rem;
+    /* add inner spacing so inner text isn't flush to edges */
+    border: rgba(212, 175, 55, 0.3);
+
 
 }
 
 .cover {
-  top: 0;
-  position: absolute;
-  background-color:#1C1F2A;
-  width: 100%;
-  height: 100%;
-  border-radius: 10px;
-  cursor: pointer;
-  -webkit-transition: all 0.5s;
-  transition: all 0.5s;
-  -webkit-transform-origin: 0;
-  -ms-transform-origin: 0;
-  transform-origin: 0;
-  -webkit-box-shadow: 1px 1px 12px #000;
-  box-shadow: 1px 1px 12px #000;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
- border: rgba(212,175,55,0.3);
+    top: 0;
+    position: absolute;
+    background-color: #1C1F2A;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    cursor: pointer;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+    -webkit-transform-origin: 0;
+    -ms-transform-origin: 0;
+    transform-origin: 0;
+    -webkit-box-shadow: 1px 1px 12px #000;
+    box-shadow: 1px 1px 12px #000;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    border: rgba(212, 175, 55, 0.3);
 }
 
 .book:hover .cover {
-  -webkit-transition: all 0.5s;
-  transition: all 0.5s;
-  -webkit-transform: rotatey(-80deg);
-  -ms-transform: rotatey(-80deg);
-  transform: rotatey(-80deg);
-  color: #24283A;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+    -webkit-transform: rotatey(-80deg);
+    -ms-transform: rotatey(-80deg);
+    transform: rotatey(-80deg);
+    color: #24283A;
 }
-.cover h3{
-    color:#D4AF37;
+
+.cover h3 {
+    color: #D4AF37;
 }
-.book li{
+
+.book li {
     font-weight: 500;
 }
 
 p {
-  font-size: 20px;
-  font-weight: bolder;
+    font-size: 20px;
+    font-weight: bolder;
 }
+
+.cover {
+  flex-direction: column; /* Stack icon, title, and button vertically */
+  justify-content: center;
+  gap: 15px; /* spacing between elements */
+}
+
+.cover h3 {
+  color: #D4AF37;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.learn-more-btn {
+  margin-top: 10px;
+  background: transparent;
+  border: 1px solid #d4af37;
+  color: #d4af37;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 6px 16px;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  position: relative;
+}
+
+.learn-more-btn:hover {
+  background: linear-gradient(90deg, #d4af37, #f1c40f);
+  color: #0c0c14;
+  box-shadow: 0 0 12px rgba(212, 175, 55, 0.7);
+  transform: translateY(-2px);
+}
+
 
 /* .service-card:hover {
     transform: translateY(-10px);
@@ -271,7 +318,7 @@ p {
     margin-bottom: 1rem;
 } */
 
-.service-features{
+.service-features {
     color: #D4AF37;
     margin-left: 50px;
 }
@@ -285,7 +332,7 @@ p {
 
 .book-now-btn {
     background: #D4AF37;
-    color:#0B0C10;
+    color: #0B0C10;
     padding: 0.8rem 1.5rem;
     border: none;
     border-radius: 25px;
@@ -296,7 +343,8 @@ p {
 }
 
 .book-now-btn:hover {
-    background: #FFB347; box-shadow: 0 0 10px rgba(255,179,71,0.5)
+    background: #FFB347;
+    box-shadow: 0 0 10px rgba(255, 179, 71, 0.5)
 }
 
 /* Popup Styles */
@@ -366,7 +414,7 @@ p {
 .form-group textarea:focus {
     outline: none;
     border-color: var(--primary-color);
-    box-shadow: 0 0 0 2px rgba(91,33,182,0.2);
+    box-shadow: 0 0 0 2px rgba(91, 33, 182, 0.2);
 }
 
 .submit-btn {
@@ -523,7 +571,7 @@ p {
     background: #10121A;
 }
 
-.testimonials h2{
+.testimonials h2 {
     color: #D4AF37;
 }
 
@@ -533,7 +581,7 @@ p {
 }
 
 .testimonial-card {
-    background:#1C1F2A;
+    background: #1C1F2A;
     padding: 2rem;
     border-radius: 15px;
     margin: 0 auto;
@@ -543,11 +591,12 @@ p {
 .testimonial-card cite {
     display: block;
     margin-top: 1rem;
-    color:#FFB347;
+    color: #FFB347;
     font-style: normal;
 }
-.testimonial-card p{
-    color:#E0E0E0;
+
+.testimonial-card p {
+    color: #E0E0E0;
 }
 
 .carousel-dots {
@@ -604,7 +653,7 @@ p {
     left: 0;
     right: 0;
     bottom: 0;
-    background: radial-gradient(circle at center, transparent, rgba(255,255,255,0.8));
+    background: radial-gradient(circle at center, transparent, rgba(255, 255, 255, 0.8));
     z-index: 2;
 }
 
@@ -613,32 +662,38 @@ p {
     z-index: 3;
     max-width: 1200px;
     margin: 0 auto;
-     background:#141622;
-     border: rgba(212,175,55,0.25);
+    background: #141622;
+    border: rgba(212, 175, 55, 0.25);
 }
 
 .about-text {
-  
+
     padding: 2rem;
     border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(91,33,182,0.1);
+    box-shadow: 0 10px 30px rgba(91, 33, 182, 0.1);
     backdrop-filter: blur(5px);
 }
-.about-text h2{
-    color:#D4AF37;
+
+.about-text h2 {
+    color: #D4AF37;
 }
-.astrologer-intro{
+
+.astrologer-intro {
     color: #E6E6E6;
 }
-.credentials h3{
+
+.credentials h3 {
     color: #A48BFF;
 }
-.credentials h4{
+
+.credentials h4 {
     color: #FFB347;
 }
-.approach h3{
+
+.approach h3 {
     color: #F9C74F;
 }
+
 .about blockquote {
     font-style: italic;
     font-size: 1.2rem;
@@ -666,19 +721,22 @@ p {
     color: #D4AF37;
 }
 
-.credentials p, .approach p {
+.credentials p,
+.approach p {
     margin-bottom: 1rem;
     color: #E6E6E6;
 }
 
-.credentials li{
-    color:#E6E6E6 ;
+.credentials li {
+    color: #E6E6E6;
 }
+
 .astrologer-img {
     width: 100%;
     border-radius: 15px;
 }
-.achievement-stats h3{
+
+.achievement-stats h3 {
     color: #FFB347;
 }
 
@@ -724,30 +782,33 @@ footer {
     display: block;
     margin-bottom: 0.5rem;
 }
-.social-links:hover{
-    color:#D4AF37;
+
+.social-links:hover {
+    color: #D4AF37;
 }
-    .ganesh-image {
-        width: 70%;
-        max-width: 1100px;
-        height: auto;
-        opacity: 0.18;
-        object-fit: contain;
-        filter: blur(0.8px) saturate(1.05);
-        transform: translateY(-8%);
-        transition: all 0.5s ease;
-    }
-    .ganesh-overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        /* subtle vignette so the center of the Ganesh art is visible */
-        background: radial-gradient(circle at center, rgba(255,255,255,0) 30%, rgba(255,255,255,0.28) 65%, rgba(255,255,255,0.55) 100%);
-        z-index: 2;
-        pointer-events: none;
-    }
+
+.ganesh-image {
+    width: 70%;
+    max-width: 1100px;
+    height: auto;
+    opacity: 0.18;
+    object-fit: contain;
+    filter: blur(0.8px) saturate(1.05);
+    transform: translateY(-8%);
+    transition: all 0.5s ease;
+}
+
+.ganesh-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /* subtle vignette so the center of the Ganesh art is visible */
+    background: radial-gradient(circle at center, rgba(255, 255, 255, 0) 30%, rgba(255, 255, 255, 0.28) 65%, rgba(255, 255, 255, 0.55) 100%);
+    z-index: 2;
+    pointer-events: none;
+}
 
 /* Responsive Design */
 @media (max-width: 768px) {
@@ -785,14 +846,15 @@ footer {
 
 /* Dark-theme specific tweaks for About section (improve contrast) */
 [data-theme="dark"] .about {
-    background: linear-gradient(135deg, rgba(17,24,39,0.96), rgba(17,24,39,0.92));
+    background: linear-gradient(135deg, rgba(17, 24, 39, 0.96), rgba(17, 24, 39, 0.92));
 }
 
 [data-theme="dark"] .about-text {
-    background: rgba(15,23,42,0.6); /* semi-opaque dark card */
+    background: rgba(15, 23, 42, 0.6);
+    /* semi-opaque dark card */
     color: var(--text-color);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.6);
-    border: 1px solid rgba(255,255,255,0.03);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.03);
     backdrop-filter: blur(6px);
 }
 
@@ -803,13 +865,14 @@ footer {
 }
 
 [data-theme="dark"] .about blockquote {
-    color: #d6bcfa; /* lighter purple for quote text */
-    border-left-color: rgba(139,92,246,0.5);
+    color: #d6bcfa;
+    /* lighter purple for quote text */
+    border-left-color: rgba(139, 92, 246, 0.5);
 }
 
 [data-theme="dark"] .ganesh-overlay {
     /* dark vignette so Ganesh art doesn't wash the text */
-    background: radial-gradient(circle at center, rgba(0,0,0,0.12) 30%, rgba(0,0,0,0.45) 100%);
+    background: radial-gradient(circle at center, rgba(0, 0, 0, 0.12) 30%, rgba(0, 0, 0, 0.45) 100%);
 }
 
 [data-theme="dark"] .ganesh-image {
@@ -818,56 +881,66 @@ footer {
 }
 
 .footer-bottom {
-   /* dark elegant background */
-  color: #ccc;                 /* soft text color */
-  text-align: center;          /* center all content */
-  padding: 15px 0;             /* top-bottom spacing */
-  font-size: 14px;
-  border-top: 1px solid #222;  /* subtle divider */
+    /* dark elegant background */
+    color: #ccc;
+    /* soft text color */
+    text-align: center;
+    /* center all content */
+    padding: 15px 0;
+    /* top-bottom spacing */
+    font-size: 14px;
+    border-top: 1px solid #222;
+    /* subtle divider */
 }
 
 .footer-bottom p {
-  margin: 0 0 8px 0;           /* small gap below the text */
-  color: #aaa;
+    margin: 0 0 8px 0;
+    /* small gap below the text */
+    color: #aaa;
 }
 
 .footer-bottom .footer-links {
-  display: flex;
-  justify-content: center;     /* center the link row */
-  gap: 20px;                   /* spacing between links */
-  flex-wrap: wrap;             /* wraps nicely on small screens */
+    display: flex;
+    justify-content: center;
+    /* center the link row */
+    gap: 20px;
+    /* spacing between links */
+    flex-wrap: wrap;
+    /* wraps nicely on small screens */
 }
 
 .footer-bottom .footer-links a {
-  color: #ddd;
-  text-decoration: none;
-  transition: color 0.3s;
+    color: #ddd;
+    text-decoration: none;
+    transition: color 0.3s;
 }
 
 .footer-bottom .footer-links a:hover {
-  color: #ffcc66;              /* highlight color on hover */
+    color: #ffcc66;
+    /* highlight color on hover */
 }
 
 
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&display=swap');
 
 .logo {
-  font-family: 'Cinzel', serif;
-  font-size: 2rem;                     /* adjust as needed */
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  background: linear-gradient(180deg, #a7c6ff, #d4179b);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  text-align: center;
-  display: inline-block;
-  text-shadow: 0 3px 10px rgba(212, 160, 23, 0.3);
-  transition: transform 0.3s ease, text-shadow 0.3s ease;
-  cursor: default;
+    font-family: 'Cinzel', serif;
+    font-size: 2rem;
+    /* adjust as needed */
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    background: linear-gradient(180deg, #a7c6ff, #d4179b);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-align: center;
+    display: inline-block;
+    text-shadow: 0 3px 10px rgba(212, 160, 23, 0.3);
+    transition: transform 0.3s ease, text-shadow 0.3s ease;
+    cursor: default;
 }
 
 .logo:hover {
-  transform: scale(1.05);
-  text-shadow: 0 4px 15px rgba(255, 215, 100, 0.5);
+    transform: scale(1.05);
+    text-shadow: 0 4px 15px rgba(255, 215, 100, 0.5);
 }
