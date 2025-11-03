@@ -115,7 +115,7 @@ bookingPopup.addEventListener('click', (e) => {
 
 // Google Apps Script Web App URL - Replace with your deployed web app URL
 // NOTE: Make sure this deployment is set to "Execute as: Me" and "Who has access: Anyone, even anonymous"
-const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzvI4go174xtDldTmmwbT0N7wmKCM2KR6_-mC4OsIpGZ3qSol4g4dvtIxBAGRRPCulCZA/exec';
+const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxPrQFNajDhD_tdvRVE7AVC40roO9d8KOeGW2dsNlmoY0foWxHuqYssdxmz5CmXh9yqyg/exec';
 // Handle form submission
 bookingForm.addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -130,8 +130,13 @@ bookingForm.addEventListener('submit', async (e) => {
         const formData = new FormData(bookingForm);
 
         // Basic client-side validation
-        if (!formData.get('name') || !formData.get('email') || !formData.get('dob') || !formData.get('tob') || !formData.get('pob')) {
-            throw new Error('Please fill in all required fields');
+        if (!formData.get('name') || !formData.get('email') || !formData.get('dob') || !formData.get('tob') || !formData.get('pob') || !formData.get('state') || !formData.get('district')) {
+            throw new Error('Please fill in all required fields (name, email, dob, tob, pob, state, district)');
+        }
+
+        // Log form values (for debugging) so you can confirm 'state' & 'district' are included
+        for (const pair of formData.entries()) {
+            console.log('Form field:', pair[0], '=', pair[1]);
         }
 
         // Use URLSearchParams to send application/x-www-form-urlencoded which avoids preflight in many cases

@@ -354,84 +354,123 @@ p {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(5, 5, 10, 0.85);
     display: none;
     justify-content: center;
     align-items: center;
     z-index: 1000;
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(8px);
 }
 
 .popup-content {
-    background: var(--card-background);
-    padding: 2rem;
-    border-radius: 15px;
+    background: radial-gradient(circle at top, #0b0b15 0%, #141425 100%);
+    padding: 2.5rem 2rem;
+    border-radius: 18px;
     width: 90%;
-    max-width: 600px;
+    max-width: 520px;
     max-height: 90vh;
     overflow-y: auto;
     position: relative;
+    border: 1px solid rgba(212, 175, 55, 0.4);
+    box-shadow: 0 0 25px rgba(212, 175, 55, 0.25);
+    color: #f8eebd;
 }
 
+/* Scroll styling */
+.popup-content::-webkit-scrollbar {
+    width: 6px;
+}
+.popup-content::-webkit-scrollbar-thumb {
+    background: rgba(212, 175, 55, 0.6);
+    border-radius: 10px;
+}
+
+/* Close button */
 .close-popup {
     position: absolute;
-    top: 1rem;
-    right: 1rem;
+    top: 1.2rem;
+    right: 1.2rem;
     background: none;
     border: none;
     font-size: 1.5rem;
     cursor: pointer;
-    color: var(--text-color);
+    color: #f5d97e;
+    transition: color 0.3s ease;
+}
+.close-popup:hover {
+    color: #ffd700;
 }
 
+/* Heading */
+.popup-content h2 {
+    font-family: "Poppins", serif;
+    color: #f8eebd;
+    text-align: center;
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+    padding-bottom: 0.5rem;
+}
+
+/* Form */
 .booking-form {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 1.2rem;
 }
 
 .form-group {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 0.4rem;
 }
 
 .form-group label {
+    font-size: 0.95rem;
+    color: #f0e6c0;
     font-weight: 500;
-    color: var(--text-color);
+    letter-spacing: 0.3px;
 }
 
 .form-group input,
 .form-group textarea {
-    padding: 0.8rem;
-    border: 1px solid var(--secondary-color);
-    border-radius: 8px;
-    background: var(--background-color);
-    color: var(--text-color);
+    width: 100%;
+    padding: 0.9rem;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-radius: 10px;
+    background: rgba(15, 15, 25, 0.9);
+    color: #fdfcf7;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
     outline: none;
-    border-color: var(--primary-color);
-    box-shadow: 0 0 0 2px rgba(91, 33, 182, 0.2);
+    border-color: #d4af37;
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
 }
 
+/* Button */
 .submit-btn {
-    background: var(--primary-color);
-    color: white;
+    background: linear-gradient(90deg, #d4af37, #f8e58b);
+    color: #000;
     padding: 1rem;
     border: none;
-    border-radius: 8px;
+    border-radius: 10px;
     cursor: pointer;
     font-size: 1.1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
     transition: all 0.3s ease;
-    margin-top: 1rem;
+    margin-top: 0.8rem;
 }
 
 .submit-btn:hover {
-    background: var(--accent-color);
+    background: linear-gradient(90deg, #f8e58b, #ffe680);
     transform: translateY(-2px);
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
 }
 
 /* Gemstones Section */
