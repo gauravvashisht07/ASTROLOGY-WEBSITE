@@ -17,33 +17,77 @@ header {
   z-index: 1000;
 }
 
+/* ===== Navbar Base ===== */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 6%;
+  padding: 1rem 5%;
+  background: #0B0C10;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
 }
 
 .logo {
-  font-family: "Cinzel Decorative", serif;
-  font-size: 1.8rem;
-  color: gold;
-  letter-spacing: 1px;
-  font-weight: bold;
+  font-family: 'Cinzel', serif;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #D4AF37;
 }
 
+/* Desktop Links */
 .nav-links a {
+  color: #D4AF37;
   text-decoration: none;
-  color: #fff;
-  margin: 0 1rem;
-  font-size: 1rem;
+  margin-left: 2rem;
   transition: color 0.3s ease;
 }
 
-.nav-links a:hover,
-.nav-links .active {
-  color: gold;
+.nav-links a:hover {
+  color: #FFD700;
 }
+
+/* ===== Mobile Navbar ===== */
+.menu-toggle {
+  display: none;
+  font-size: 2rem;
+  color: #D4AF37;
+  cursor: pointer;
+}
+
+/* Responsive Layout */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 70px;
+    right: 0;
+    width: 100%;
+    background-color: #0B0C10;
+    padding: 1rem 0;
+    border-top: 1px solid #222;
+  }
+
+  .nav-links a {
+    display: block;
+    padding: 10px 0;
+    width: 100%;
+    text-align: center;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+}
+
 
 /* HERO SECTION */
 .gemstone-hero {

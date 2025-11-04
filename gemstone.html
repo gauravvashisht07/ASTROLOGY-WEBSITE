@@ -9,17 +9,23 @@
 
 <body>
   <!-- ===== HEADER ===== -->
-  <header>
-    <nav class="navbar">
-      <div class="logo">ASTRONAVIRA</div>
-      <div class="nav-links">
-        <a href="index.html#services">Services</a>
-        <a href="gemstones.html" class="active">Gemstones</a>
-        <a href="index.html#about">About</a>
-        <a href="index.html#contact">Contact</a>
-      </div>
-    </nav>
-  </header>
+  <!-- ===== HEADER ===== -->
+<header>
+  <nav class="navbar">
+    <div class="logo">ASTRONAVIRA</div>
+
+    <!-- Hamburger Icon -->
+    <div class="menu-toggle" id="mobile-menu">☰</div>
+
+    <div class="nav-links">
+      <a href="index.html#services">Services</a>
+      <a href="gemstones.html" class="active">Gemstones</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#contact">Contact</a>
+    </div>
+  </nav>
+</header>
+
 
   <!-- ===== HERO SECTION ===== -->
   <section class="gemstone-hero">
@@ -120,4 +126,13 @@
     <p>© 2025 ASTRONAVIRA. All rights reserved. | Crafted with 💫 by Amit Sharma</p>
   </footer>
 </body>
+<script>
+  const mobileMenu = document.getElementById('mobile-menu');
+  const navLinks = document.querySelector('.nav-links');
+
+  mobileMenu.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+  });
+</script>
+
 </html>
