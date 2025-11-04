@@ -6,6 +6,10 @@ body {
   font-family: 'Poppins', sans-serif;
   overflow-x: hidden;
 }
+.logo {
+    width: 180px;
+    height: 70px
+}
 
 /* HEADER */
 header {
