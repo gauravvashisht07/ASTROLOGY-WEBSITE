@@ -17,66 +17,89 @@ header {
   z-index: 1000;
 }
 
-/* ===== Navbar Base ===== */
+/* ===== GEMSTONE PAGE NAVBAR ===== */
 .navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 5%;
-  background: #0B0C10;
   position: fixed;
   width: 100%;
   top: 0;
+  left: 0;
+  background: rgba(11, 12, 16, 0.95);
+  backdrop-filter: blur(10px);
   z-index: 1000;
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.15);
 }
 
+.navbar-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0.8rem 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Logo Styling */
 .logo {
   font-family: 'Cinzel', serif;
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   font-weight: 800;
   color: #D4AF37;
+  letter-spacing: 2px;
+  text-shadow: 0 0 10px rgba(212, 175, 55, 0.7);
 }
 
-/* Desktop Links */
+/* Navbar Links */
+.nav-links {
+  display: flex;
+  gap: 2rem;
+}
+
 .nav-links a {
-  color: #D4AF37;
+  color: #f4f4f4;
+  font-weight: 500;
   text-decoration: none;
-  margin-left: 2rem;
-  transition: color 0.3s ease;
+  transition: all 0.3s ease;
 }
 
-.nav-links a:hover {
-  color: #FFD700;
+.nav-links a:hover,
+.nav-links a.active {
+  color: #D4AF37;
+  text-shadow: 0 0 8px rgba(212, 175, 55, 0.8);
 }
 
-/* ===== Mobile Navbar ===== */
+/* ===== Hamburger Icon ===== */
 .menu-toggle {
   display: none;
-  font-size: 2rem;
-  color: #D4AF37;
+  flex-direction: column;
   cursor: pointer;
+  width: 28px;
+  height: 20px;
+  justify-content: space-between;
 }
 
-/* Responsive Layout */
+.bar {
+  height: 3px;
+  width: 100%;
+  background-color: #D4AF37;
+  border-radius: 10px;
+  transition: all 0.4s ease;
+}
+
+/* ===== Mobile Responsive ===== */
 @media (max-width: 768px) {
   .nav-links {
     display: none;
     flex-direction: column;
-    align-items: center;
+    background: rgba(11, 12, 16, 0.98);
     position: absolute;
     top: 70px;
     right: 0;
     width: 100%;
-    background-color: #0B0C10;
-    padding: 1rem 0;
-    border-top: 1px solid #222;
-  }
-
-  .nav-links a {
-    display: block;
-    padding: 10px 0;
-    width: 100%;
     text-align: center;
+    padding: 1rem 0;
+    border-top: 1px solid rgba(212, 175, 55, 0.3);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+    animation: slideDown 0.4s ease;
   }
 
   .nav-links.active {
@@ -84,9 +107,39 @@ header {
   }
 
   .menu-toggle {
-    display: block;
+    display: flex;
+  }
+
+  .nav-links a {
+    padding: 12px 0;
+    font-size: 1.1rem;
+    color: #f8f8f8;
+  }
+
+  /* Animation for dropdown */
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 }
+
+/* ===== Toggle Animation for Hamburger ===== */
+.menu-toggle.active .bar:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.menu-toggle.active .bar:nth-child(2) {
+  opacity: 0;
+}
+.menu-toggle.active .bar:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
 
 
 /* HERO SECTION */

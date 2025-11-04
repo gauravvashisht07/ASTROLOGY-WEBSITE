@@ -436,16 +436,19 @@
     </footer>
 
     <script src="script.js"></script>
-</body>
-
     <script>
-  const mobileMenu = document.getElementById('mobile-menu');
-  const navLinks = document.querySelector('.nav-links');
+  const mobileMenu = document.getElementById("mobile-menu");
+  const navLinks = document.getElementById("nav-links");
 
-  mobileMenu.addEventListener('click', () => {
-    navLinks.classList.toggle('active');
+  mobileMenu.addEventListener("click", () => {
+    mobileMenu.classList.toggle("active");
+    navLinks.classList.toggle("active");
   });
 </script>
+
+</body>
+
+    
 
 
 </html>
