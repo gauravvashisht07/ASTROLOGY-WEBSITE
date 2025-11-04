@@ -47,23 +47,26 @@
 
 <body>
     <!-- Header/Navbar -->
-    <header>
-        <nav class="navbar">
-            <img src="images/gemstones/LOGO.png" alt="ASTRONAVIRA Logo" class="logo">
-            <div class="nav-links">
-                <a href="#services">Services</a>
-                <a href="gemstone.html">Gemstones</a>
-                <a href="#about">About</a>
-                <a href="#testimonials">Testimonials</a>
-                <a href="#contact">Contact</a>
+   <header>
+  <nav class="navbar">
+    <img src="images/gemstones/LOGO.png" alt="ASTRONAVIRA Logo" class="logo">
 
-                <button class="theme-toggle">
-                    <i class="fas fa-moon"></i>
-                </button>
-            </div>
+    <!-- Hamburger icon for mobile -->
+    <div class="menu-toggle" id="mobile-menu">☰</div>
 
-        </nav>
-    </header>
+    <div class="nav-links">
+      <a href="#services">Services</a>
+      <a href="gemstone.html">Gemstones</a>
+      <a href="#about">About</a>
+      <a href="#testimonials">Testimonials</a>
+      <a href="#contact">Contact</a>
+      <button class="theme-toggle">
+        <i class="fas fa-moon"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+
 
     <!-- Hero Section -->
     <section class="hero">
@@ -434,7 +437,8 @@
 
     <script src="script.js"></script>
 </body>
-<script>
+
+    <script>
   const mobileMenu = document.getElementById('mobile-menu');
   const navLinks = document.querySelector('.nav-links');
 

@@ -83,36 +83,6 @@ with a fallback to a serif font, font size to 1.5rem, font weight to 800, and co
     color: var(--accent-color);
 }
 
-.menu-toggle {
-  display: none;
-  font-size: 2rem;
-  color: #D4AF37;
-  cursor: pointer;
-}
-
-/* For small screens (mobile view) */
-@media (max-width: 768px) {
-  .nav-links {
-    display: none;
-    flex-direction: column;
-    align-items: center;
-    position: absolute;
-    top: 70px;
-    right: 0;
-    background: #0B0C10;
-    width: 100%;
-    padding: 1.5rem 0;
-    border-top: 1px solid #222;
-  }
-
-  .nav-links.active {
-    display: flex;
-  }
-
-  .menu-toggle {
-    display: block;
-  }
-}
 
 .theme-toggle {
     background: none;
@@ -122,6 +92,49 @@ with a fallback to a serif font, font size to 1.5rem, font weight to 800, and co
     font-size: 1.2rem;
     margin-left: 2rem;
 }
+
+/* Default: Hide hamburger icon on big screens */
+.menu-toggle {
+  display: none;
+  font-size: 2rem;
+  color: #D4AF37;
+  cursor: pointer;
+}
+
+/* Responsive Navbar for Mobile */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 70px;
+    right: 0;
+    width: 100%;
+    background-color: #0B0C10;
+    padding: 1rem 0;
+    border-top: 1px solid #222;
+  }
+
+  .nav-links a {
+    padding: 10px 0;
+    width: 100%;
+    text-align: center;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .theme-toggle {
+    margin-top: 10px;
+  }
+}
+
 
 /* Hero Section */
 .hero {
