@@ -83,6 +83,37 @@ with a fallback to a serif font, font size to 1.5rem, font weight to 800, and co
     color: var(--accent-color);
 }
 
+.menu-toggle {
+  display: none;
+  font-size: 2rem;
+  color: #D4AF37;
+  cursor: pointer;
+}
+
+/* For small screens (mobile view) */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 70px;
+    right: 0;
+    background: #0B0C10;
+    width: 100%;
+    padding: 1.5rem 0;
+    border-top: 1px solid #222;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+}
+
 .theme-toggle {
     background: none;
     border: none;
