@@ -94,46 +94,59 @@ with a fallback to a serif font, font size to 1.5rem, font weight to 800, and co
 }
 
 /* Default: Hide hamburger icon on big screens */
+/* Hamburger button styling */
 .menu-toggle {
   display: none;
-  font-size: 2rem;
-  color: #D4AF37;
+  flex-direction: column;
   cursor: pointer;
+  gap: 5px;
+  z-index: 1100;
 }
 
-/* Responsive Navbar for Mobile */
+.menu-toggle span {
+  width: 25px;
+  height: 3px;
+  background-color: #D4AF37; /* golden color */
+  border-radius: 2px;
+}
+
+/* Mobile styles */
 @media (max-width: 768px) {
-  .nav-links {
-    display: none;
-    flex-direction: column;
-    align-items: center;
-    position: absolute;
-    top: 70px;
-    right: 0;
-    width: 100%;
-    background-color: #0B0C10;
-    padding: 1rem 0;
-    border-top: 1px solid #222;
+  .menu-toggle {
+    display: flex;
   }
 
-  .nav-links a {
-    padding: 10px 0;
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
     width: 100%;
+    flex-direction: column;
+    background: #0B0C10;
     text-align: center;
+    padding: 1rem 0;
+    z-index: 1099;
   }
 
   .nav-links.active {
     display: flex;
   }
 
-  .menu-toggle {
-    display: block;
+  .nav-links a {
+    margin: 1rem 0;
+    color: #D4AF37;
   }
 
-  .theme-toggle {
-    margin-top: 10px;
+  .nav-links a:hover {
+    color: #FFD700;
+  }
+
+  body.mobile-nav-open {
+    overflow: hidden;
   }
 }
+
 
 
 /* Hero Section */
