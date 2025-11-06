@@ -91,16 +91,13 @@ bookingPopup.addEventListener('click', (e) => {
     }
 });
 
-// Email sending removed — focusing on sending form data to Google Sheets only
-
-// Google Apps Script Web App URL - Replace with your deployed web app URL
-// NOTE: Make sure this deployment is set to "Execute as: Me" and "Who has access: Anyone, even anonymous"
+// Google Apps Script Web App URL
 const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxPrQFNajDhD_tdvRVE7AVC40roO9d8KOeGW2dsNlmoY0foWxHuqYssdxmz5CmXh9yqyg/exec';
+
 // Handle form submission
 bookingForm.addEventListener('submit', async (e) => {
     e.preventDefault();
 
-    // Show loading state
     const submitBtn = bookingForm.querySelector('.submit-btn');
     const originalBtnText = submitBtn.textContent;
     submitBtn.textContent = 'Processing...';
@@ -114,84 +111,47 @@ bookingForm.addEventListener('submit', async (e) => {
             throw new Error('Please fill in all required fields (name, email, dob, tob, pob, state, district)');
         }
 
-        // Log form values (for debugging) so you can confirm 'state' & 'district' are included
-        for (const pair of formData.entries()) {
-            console.log('Form field:', pair[0], '=', pair[1]);
-        }
-
-        // Use URLSearchParams to send application/x-www-form-urlencoded which avoids preflight in many cases
-        const params = new URLSearchParams();
-        for (const pair of formData.entries()) {
-            params.append(pair[0], pair[1]);
-        }
-
-        // Try a normal fetch first (CORS must be allowed by the Apps Script or same-origin)
-        let response;
-        try {
-            console.log('Submitting form to', SCRIPT_URL);
-            response = await fetch(SCRIPT_URL, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded',
-                },
-                body: params.toString()
-            });
-            console.log('Fetch response status:', response.status, response.statusText);
-        } catch (err) {
-            // If fetch fails due to CORS in the browser, fallback to no-cors to at least send the request (opaque response)
-            console.warn('Fetch failed, retrying with no-cors mode (response will be opaque):', err);
-            try {
-                await fetch(SCRIPT_URL, {
-                    method: 'POST',
-                    body: params.toString(),
-                    mode: 'no-cors'
-                });
-                console.log('Fallback no-cors POST sent (opaque response)');
-            } catch (fallbackErr) {
-                console.error('Fallback no-cors POST also failed:', fallbackErr);
-                throw fallbackErr;
-            }
-            response = null; // opaque
-        }
-
-        // If response is available and readable, try to parse JSON and check status
-        if (response && response.ok) {
-            let result = { status: 'unknown' };
-            try {
-                if (response && response.ok) {
-                    try {
-                        result = await response.json();
-                    } catch (e) {
-                        console.warn('Could not parse response JSON:', e);
-                        // Continue even if parsing fails
-                        result = { status: 'success' };
-                    }
-                } else {
-                    console.warn('Response not OK:', response?.status, response?.statusText);
-                }
-            } catch (e) {
-                console.warn('Error checking response:', e);
-                // Assume success if we can't read the response (no-cors mode)
-                result = { status: 'success' };
-            }
-        }
-
-        // Show success message (booking saved to Google Sheets)
-        alert('Thank you for your booking! Your booking has been recorded.');
-
-        // Close popup and reset form
+        // ✅ Show success message immediately
+        alert('✅ Thank you for your booking! Your request is being processed.');
+        
+        // ✅ Close popup instantly for better UX
         bookingPopup.style.display = 'none';
         document.body.style.overflow = 'auto';
         bookingForm.reset();
+
+        // Continue backend submission asynchronously (non-blocking)
+        setTimeout(async () => {
+            try {
+                const params = new URLSearchParams();
+                for (const pair of formData.entries()) {
+                    params.append(pair[0], pair[1]);
+                }
+
+                console.log('Submitting form in background...');
+                await fetch(SCRIPT_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    body: params.toString(),
+                    mode: 'no-cors'
+                });
+
+                console.log('Form data sent successfully (background)');
+            } catch (error) {
+                console.error('Background submission failed:', error);
+            } finally {
+                submitBtn.textContent = originalBtnText;
+                submitBtn.disabled = false;
+            }
+        }, 200); // delay a bit to let UI finish closing animation
+
     } catch (error) {
         console.error('Error submitting form:', error);
         alert(error.message || 'There was an error processing your booking. Please try again.');
-    } finally {
-        // Reset button state
         submitBtn.textContent = originalBtnText;
         submitBtn.disabled = false;
     }
 });
+
 
 // Razorpay payment integration
 function initializeRazorpayPayment(amount, orderId) {
