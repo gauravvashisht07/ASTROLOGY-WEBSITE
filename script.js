@@ -8,28 +8,8 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Dark mode toggle
-const themeToggle = document.querySelector('.theme-toggle');
-const body = document.body;
 
-// Check for saved theme preference
-const savedTheme = localStorage.getItem('theme');
-if (savedTheme) {
-    body.setAttribute('data-theme', savedTheme);
-    updateThemeIcon(savedTheme === 'dark');
-}
 
-themeToggle.addEventListener('click', () => {
-    const isDark = body.getAttribute('data-theme') === 'dark';
-    body.setAttribute('data-theme', isDark ? 'light' : 'dark');
-    localStorage.setItem('theme', isDark ? 'light' : 'dark');
-    updateThemeIcon(!isDark);
-});
-
-function updateThemeIcon(isDark) {
-    const icon = themeToggle.querySelector('i');
-    icon.className = isDark ? 'fas fa-sun' : 'fas fa-moon';
-}
 
 // Testimonials carousel
 const testimonials = document.querySelectorAll('.testimonial-card');
@@ -265,4 +245,28 @@ window.addEventListener('scroll', () => {
     }
     
     lastScroll = currentScroll;
+});
+
+// -----------------------------
+// Mobile Navbar Toggle
+// -----------------------------
+document.addEventListener("DOMContentLoaded", () => {
+  const mobileMenu = document.getElementById("mobile-menu");
+  const navLinks = document.getElementById("nav-links");
+
+  if (mobileMenu && navLinks) {
+    mobileMenu.addEventListener("click", () => {
+      mobileMenu.classList.toggle("active");
+      navLinks.classList.toggle("active");
+      document.body.classList.toggle("mobile-nav-open");
+    });
+
+    navLinks.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        mobileMenu.classList.remove("active");
+        navLinks.classList.remove("active");
+        document.body.classList.remove("mobile-nav-open");
+      });
+    });
+  }
 });

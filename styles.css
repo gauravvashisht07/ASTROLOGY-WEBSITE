@@ -9,15 +9,6 @@
     --navbar-background: rgba(255, 255, 255, 0.95);
 }
 
-[data-theme="dark"] {
-    --primary-color: #8B5CF6;
-    --secondary-color: #4C1D95;
-    --accent-color: #FBBF24;
-    --text-color: #F3F4F6;
-    --background-color: #111827;
-    --card-background: #1F2937;
-    --navbar-background: rgba(31, 41, 55, 0.95);
-}
 
 * {
     margin: 0;
@@ -55,16 +46,7 @@ h3 {
 
 }
 
-/* The above code is defining styles for a logo element in CSS. It sets the font family to 'Cinzel'
-with a fallback to a serif font, font size to 1.5rem, font weight to 800, and color to a variable
-(--primary-color). */
-/* .logo {
-    font-family: 'Cinzel', serif;
-    font-size: 1.5rem;
-    
-    font-weight: 800;
-    color: var(--primary-color);
-} */
+
 .logo {
     width: 200px;
     height: 80px
@@ -208,7 +190,7 @@ with a fallback to a serif font, font size to 1.5rem, font weight to 800, and co
 
 .cta-button:hover {
     transform: translateY(-3px);
-    color: wh;
+    color: white;
 }
 
 /* Services Section */
@@ -363,17 +345,6 @@ p {
   transform: translateY(-2px);
 }
 
-
-/* .service-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-}
-
-.service-card i {
-    font-size: 2.5rem;
-    color: var(--accent-color);
-    margin-bottom: 1rem;
-} */
 
 .service-features {
     color: #D4AF37;
