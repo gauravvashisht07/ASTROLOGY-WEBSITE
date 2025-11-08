@@ -12,7 +12,7 @@
 <header>
   <nav class="navbar">
     <div class="navbar-container">
-      <img src="images/gemstones/LOGO.png" alt="ASTRONAVIRA Logo" class="logo" />
+      <img src="images/gemstones/LOGO2.png" alt="ASTRONAVIRA Logo" class="logo" />
 
       <!-- Hamburger Menu Icon -->
       <div class="menu-toggle" id="mobile-menu">
@@ -32,6 +32,7 @@
     </div>
   </nav>
 </header>
+
 
 
 
@@ -136,11 +137,13 @@
 </body>
 <script>
   const mobileMenu = document.getElementById('mobile-menu');
-  const navLinks = document.querySelector('.nav-links');
+  const navLinks = document.getElementById('nav-links');
 
   mobileMenu.addEventListener('click', () => {
+    mobileMenu.classList.toggle('active');
     navLinks.classList.toggle('active');
   });
 </script>
+
 
 </html>
