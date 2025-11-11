@@ -60,7 +60,7 @@ async function runTests() {
         links.forEach(link => {
             const targetId = link.getAttribute('href').substring(1);
             const targetElement = document.getElementById(targetId);
-            
+
             if (!targetElement) {
                 console.error(`❌ Navigation test failed: Target ${targetId} not found`);
                 allValid = false;

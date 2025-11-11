@@ -46,7 +46,7 @@ function showSlide(index) {
 setInterval(() => {
     const nextSlide = (currentSlide + 1) % testimonials.length;
     showSlide(nextSlide);
-}, 5000);
+}, 3000);
 
 // Booking form functionality
 const bookingPopup = document.getElementById('bookingPopup');
@@ -113,7 +113,7 @@ bookingForm.addEventListener('submit', async (e) => {
 
         // ✅ Show success message immediately
         alert('✅ Thank you for your booking! Your request is being processed.');
-        
+
         // ✅ Close popup instantly for better UX
         bookingPopup.style.display = 'none';
         document.body.style.overflow = 'auto';
@@ -159,7 +159,7 @@ function initializeRazorpayPayment(amount, orderId) {
         key: "YOUR_RAZORPAY_KEY_ID", // Enter the Key ID generated from the Dashboard
         amount: amount * 100, // Amount is in currency subunits
         currency: "INR",
-    name: "ASTRONAVIRA",
+        name: "ASTRONAVIRA",
         description: "Gemstone Purchase",
         image: "your-logo-url.png",
         order_id: orderId,
@@ -176,7 +176,7 @@ function initializeRazorpayPayment(amount, orderId) {
             color: "#5B21B6"
         }
     };
-    
+
     const rzp = new Razorpay(options);
     rzp.open();
 }
@@ -190,12 +190,12 @@ let lastScroll = 0;
 
 window.addEventListener('scroll', () => {
     const currentScroll = window.pageYOffset;
-    
+
     if (currentScroll <= 0) {
         navbar.classList.remove('scroll-up');
         return;
     }
-    
+
     if (currentScroll > lastScroll && !navbar.classList.contains('scroll-down')) {
         navbar.classList.remove('scroll-up');
         navbar.classList.add('scroll-down');
@@ -203,7 +203,7 @@ window.addEventListener('scroll', () => {
         navbar.classList.remove('scroll-down');
         navbar.classList.add('scroll-up');
     }
-    
+
     lastScroll = currentScroll;
 });
 
@@ -211,22 +211,22 @@ window.addEventListener('scroll', () => {
 // Mobile Navbar Toggle
 // -----------------------------
 document.addEventListener("DOMContentLoaded", () => {
-  const mobileMenu = document.getElementById("mobile-menu");
-  const navLinks = document.getElementById("nav-links");
+    const mobileMenu = document.getElementById("mobile-menu");
+    const navLinks = document.getElementById("nav-links");
 
-  if (mobileMenu && navLinks) {
-    mobileMenu.addEventListener("click", () => {
-      mobileMenu.classList.toggle("active");
-      navLinks.classList.toggle("active");
-      document.body.classList.toggle("mobile-nav-open");
-    });
+    if (mobileMenu && navLinks) {
+        mobileMenu.addEventListener("click", () => {
+            mobileMenu.classList.toggle("active");
+            navLinks.classList.toggle("active");
+            document.body.classList.toggle("mobile-nav-open");
+        });
 
-    navLinks.querySelectorAll("a").forEach(link => {
-      link.addEventListener("click", () => {
-        mobileMenu.classList.remove("active");
-        navLinks.classList.remove("active");
-        document.body.classList.remove("mobile-nav-open");
-      });
-    });
-  }
+        navLinks.querySelectorAll("a").forEach(link => {
+            link.addEventListener("click", () => {
+                mobileMenu.classList.remove("active");
+                navLinks.classList.remove("active");
+                document.body.classList.remove("mobile-nav-open");
+            });
+        });
+    }
 });

@@ -3,14 +3,14 @@ function doPost(e) {
   try {
     // Define the sheet name where data will be stored
     const SHEET_NAME = 'Bookings';
-    
+
     // Log the entire event object for debugging
     console.log('=== doPost called ===');
     console.log('Event object:', JSON.stringify(e));
-    
+
     // Initialize data object
     var data = {};
-    
+
     // Check if we have post data
     if (e && e.postData && e.postData.contents) {
       console.log('Post data contents:', e.postData.contents);
@@ -31,36 +31,36 @@ function doPost(e) {
       // If no post data but we have parameters, use those
       data = e.parameter;
     }
-    
+
     // Log the parsed data
     console.log('Parsed data:', JSON.stringify(data));
 
     // Validate required fields
     const requiredFields = ['name', 'email', 'dob', 'tob', 'pob', 'serviceType'];
     const missingFields = requiredFields.filter(field => !data[field]);
-    
+
     if (missingFields.length > 0) {
       return sendResponse(400, `Missing required fields: ${missingFields.join(', ')}`);
     }
 
-  // Get the spreadsheet and specified sheet
-  // Using the spreadsheet ID provided by the user
-  const SPREADSHEET_ID = '1J-xBIJMp7dCOzR4c3dlmgfU-mR0vBaLBrL6nb_yalY8'; // Google Sheet ID
-  const ss = SpreadsheetApp.openById(SPREADSHEET_ID);
-  let sheet = ss.getSheetByName(SHEET_NAME);
-    
+    // Get the spreadsheet and specified sheet
+    // Using the spreadsheet ID provided by the user
+    const SPREADSHEET_ID = '1J-xBIJMp7dCOzR4c3dlmgfU-mR0vBaLBrL6nb_yalY8'; // Google Sheet ID
+    const ss = SpreadsheetApp.openById(SPREADSHEET_ID);
+    let sheet = ss.getSheetByName(SHEET_NAME);
+
     // Create the sheet if it doesn't exist
     if (!sheet) {
       sheet = ss.insertSheet(SHEET_NAME);
       // Add headers
-      sheet.getRange('A1:K1').setValues([['Timestamp', 'Name', 'Date of Birth', 'Time of Birth', 
+      sheet.getRange('A1:K1').setValues([['Timestamp', 'Name', 'Date of Birth', 'Time of Birth',
         'Place of Birth', 'Current Location', 'Email', 'Phone', 'Message', 'Service Type', 'Payment Status']]);
     }
-    
+
     // Add timestamp and payment status
     const timestamp = new Date();
     const paymentStatus = "Pending";
-    
+
     // Add row to sheet
     sheet.appendRow([
       timestamp,
@@ -75,7 +75,7 @@ function doPost(e) {
       data.serviceType,
       paymentStatus
     ]);
-    
+
     // Send email confirmation
     const emailBody = `
       Dear ${data.name},
@@ -104,9 +104,9 @@ function doPost(e) {
       console.error('Failed to send confirmation email:', mailErr);
       // Continue — email failure shouldn't stop the booking from being recorded
     }
-    
-  return sendResponse(200, 'Booking successfully recorded');
-    
+
+    return sendResponse(200, 'Booking successfully recorded');
+
   } catch (error) {
     console.error('Error in doPost:', error);
     return sendResponse(500, 'Internal server error');

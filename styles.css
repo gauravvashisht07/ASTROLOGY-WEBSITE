@@ -78,55 +78,56 @@ h3 {
 /* Default: Hide hamburger icon on big screens */
 /* Hamburger button styling */
 .menu-toggle {
-  display: none;
-  flex-direction: column;
-  cursor: pointer;
-  gap: 5px;
-  z-index: 1100;
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+    z-index: 1100;
 }
 
 .menu-toggle span {
-  width: 25px;
-  height: 3px;
-  background-color: #D4AF37; /* golden color */
-  border-radius: 2px;
+    width: 25px;
+    height: 3px;
+    background-color: #D4AF37;
+    /* golden color */
+    border-radius: 2px;
 }
 
 /* Mobile styles */
 @media (max-width: 768px) {
-  .menu-toggle {
-    display: flex;
-  }
+    .menu-toggle {
+        display: flex;
+    }
 
-  .nav-links {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    flex-direction: column;
-    background: #0B0C10;
-    text-align: center;
-    padding: 1rem 0;
-    z-index: 1099;
-  }
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        flex-direction: column;
+        background: #0B0C10;
+        text-align: center;
+        padding: 1rem 0;
+        z-index: 1099;
+    }
 
-  .nav-links.active {
-    display: flex;
-  }
+    .nav-links.active {
+        display: flex;
+    }
 
-  .nav-links a {
-    margin: 1rem 0;
-    color: #D4AF37;
-  }
+    .nav-links a {
+        margin: 1rem 0;
+        color: #D4AF37;
+    }
 
-  .nav-links a:hover {
-    color: #FFD700;
-  }
+    .nav-links a:hover {
+        color: #FFD700;
+    }
 
-  body.mobile-nav-open {
-    overflow: hidden;
-  }
+    body.mobile-nav-open {
+        overflow: hidden;
+    }
 }
 
 
@@ -313,36 +314,38 @@ p {
 }
 
 .cover {
-  flex-direction: column; /* Stack icon, title, and button vertically */
-  justify-content: center;
-  gap: 15px; /* spacing between elements */
+    flex-direction: column;
+    /* Stack icon, title, and button vertically */
+    justify-content: center;
+    gap: 15px;
+    /* spacing between elements */
 }
 
 .cover h3 {
-  color: #D4AF37;
-  margin-bottom: 10px;
-  text-align: center;
+    color: #D4AF37;
+    margin-bottom: 10px;
+    text-align: center;
 }
 
 .learn-more-btn {
-  margin-top: 10px;
-  background: transparent;
-  border: 1px solid #d4af37;
-  color: #d4af37;
-  font-size: 0.85rem;
-  font-weight: 600;
-  padding: 6px 16px;
-  border-radius: 25px;
-  transition: all 0.3s ease;
-  text-decoration: none;
-  position: relative;
+    margin-top: 10px;
+    background: transparent;
+    border: 1px solid #d4af37;
+    color: #d4af37;
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 6px 16px;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    position: relative;
 }
 
 .learn-more-btn:hover {
-  background: linear-gradient(90deg, #d4af37, #f1c40f);
-  color: #0c0c14;
-  box-shadow: 0 0 12px rgba(212, 175, 55, 0.7);
-  transform: translateY(-2px);
+    background: linear-gradient(90deg, #d4af37, #f1c40f);
+    color: #0c0c14;
+    box-shadow: 0 0 12px rgba(212, 175, 55, 0.7);
+    transform: translateY(-2px);
 }
 
 
@@ -408,6 +411,7 @@ p {
 .popup-content::-webkit-scrollbar {
     width: 6px;
 }
+
 .popup-content::-webkit-scrollbar-thumb {
     background: rgba(212, 175, 55, 0.6);
     border-radius: 10px;
@@ -425,6 +429,7 @@ p {
     color: #f5d97e;
     transition: color 0.3s ease;
 }
+
 .close-popup:hover {
     color: #ffd700;
 }
@@ -692,37 +697,7 @@ p {
     overflow: hidden;
 }
 
-.ganesh-wrapper {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 
-.ganesh-image {
-    width: auto;
-    height: 140%;
-    opacity: 0.12;
-    object-fit: contain;
-    filter: blur(1px);
-    transform: scale(1.1);
-    transition: all 0.5s ease;
-}
-
-.ganesh-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: radial-gradient(circle at center, transparent, rgba(255, 255, 255, 0.8));
-    z-index: 2;
-}
 
 .about-content {
     position: relative;
