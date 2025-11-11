@@ -6,7 +6,7 @@
     "test": "node test-suite.js",
     "optimize-images": "node scripts/optimize-images.js",
     "build": "npm run optimize-images",
-     "postinstall": "npm rebuild sharp --platform=linux --arch=x64"
+    "postinstall": "npm rebuild sharp --platform=linux --arch=x64"
   },
   "dependencies": {
     "@emailjs/browser": "^3.11.0",
