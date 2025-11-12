@@ -147,7 +147,7 @@ h3 {
   .nav-links a {
     padding: 12px 0;
     font-size: 1.1rem;
-    color: #f4f4f4;
+    color:#FFD700;
   }
 
   @keyframes slideDown {

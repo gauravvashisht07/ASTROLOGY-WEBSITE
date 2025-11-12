@@ -64,7 +64,7 @@ header {
 }
 
 .nav-links a {
-  color: #f4f4f4;
+  color:  #D4AF37;
   font-weight: 500;
   text-decoration: none;
   font-size: 1rem;
@@ -147,7 +147,7 @@ header {
   .nav-links a {
     padding: 12px 0;
     font-size: 1.1rem;
-    color: #f4f4f4;
+    color: #FFD700;
   }
 }
 

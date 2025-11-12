@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- META -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Celestial Cases by Astronavira — sacred-geometry inspired mobile covers infused with cosmic energy and gemstone vibration for spiritual harmony." />
+  <title>Celestial Cases | Astronavira</title>
+
+  <!-- FONTS & CSS -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Poppins:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/styles.css" />
+  <link rel="stylesheet" href="../css/celestial.css" />
+</head>
+
+<body>
+  <!-- HEADER / NAVBAR -->
+  <header>
+    <nav class="navbar">
+      <img src="../assets/images/gemstones/LOGONEW.png" alt="Astronavira Logo" class="logo" />
+
+      <!-- Hamburger icon for mobile -->
+      <div class="menu-toggle" id="mobile-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      <div class="nav-links" id="nav-links">
+        <a href="../index.html">Home</a>
+        <!-- <a href="../index.html#services">Services</a> -->
+        <a href="gemstone.html">Gemstones</a>
+        <!-- <a href="celestial.html" class="active">Celestial Cases</a> -->
+        <a href="../index.html#about">About</a>
+        <a href="../index.html#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="celestial-hero">
+    <h1>Divine Celestial Cases by Astronavira</h1>
+    <p>Carry the cosmic energy of your ruling planet wherever you go. Each case is inspired by gemstone vibrations and sacred geometry — designed for balance, protection, and style.</p>
+  </section>
+
+  <!-- PRODUCT GRID -->
+  <section class="case-list">
+    <article class="case-card">
+      <img src="../assets/images/mobilecovers/sun-cover.webp" alt="Solar Energy Case" loading="lazy" />
+      <h2>Solar Energy Case ☀️</h2>
+      <p>Radiates positivity, power, and confidence — aligned with the energy of the Sun.</p>
+      <button class="buy-btn">Buy Now</button>
+    </article>
+
+    <article class="case-card">
+      <img src="../assets/images/mobilecovers/moon-cover.webp" alt="Lunar Harmony Case" loading="lazy" />
+      <h2>Lunar Harmony Case 🌙</h2>
+      <p>Brings calmness, emotional stability, and peace — inspired by lunar energy.</p>
+      <button class="buy-btn">Buy Now</button>
+    </article>
+
+    <article class="case-card">
+      <img src="../assets/images/mobilecovers/mars-cover.webp" alt="Mars Power Case" loading="lazy" />
+      <h2>Mars Power Case 🔥</h2>
+      <p>Boosts courage, motivation, and drive — ideal for those ruled by Mars.</p>
+      <button class="buy-btn">Buy Now</button>
+    </article>
+
+    <article class="case-card">
+      <img src="../assets/images/mobilecovers/venus-cover.webp" alt="Venus Love Case" loading="lazy" />
+      <h2>Venus Love Case 💖</h2>
+      <p>Enhances beauty, charm, and love — radiating Venus’s peaceful energy.</p>
+      <button class="buy-btn">Buy Now</button>
+    </article>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2025 Astronavira — All Rights Reserved</p>
+  </footer>
+
+  <!-- SCRIPT -->
+  <script>
+    // Simple mobile menu toggle
+    const menuToggle = document.getElementById('mobile-menu');
+    const navLinks = document.getElementById('nav-links');
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+      menuToggle.classList.toggle('open');
+    });
+  </script>
+</body>
+</html>
