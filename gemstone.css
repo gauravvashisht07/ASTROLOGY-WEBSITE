@@ -40,20 +40,20 @@ header {
 .navbar-container {
   width: 100%;
   margin: 0;
-  padding: 0.8rem 50px;
-  /* 🔸 only 10px gap on left & right */
+  padding: 0.8rem 20px; /* 🔸 Reduced side padding from 50px → 20px */
   display: flex;
   justify-content: space-between;
   align-items: center;
   box-sizing: border-box;
 }
 
-
 /* Logo */
 .logo {
-  width: 180px;
-  height: 70px;
+  width: 165px;
+  height: auto;
   object-fit: contain;
+  display: block;
+  margin-left: 5px; /* minimal left gap for breathing space */
 }
 
 /* Nav links (desktop view) */
@@ -82,10 +82,12 @@ header {
   display: none;
   flex-direction: column;
   cursor: pointer;
-  width: 25px;
-  height: 18px;
+  width: 28px;
+  height: 20px;
   justify-content: space-between;
+  margin-right: 5px; /* minimal right gap */
 }
+
 
 .bar {
   height: 3px;
@@ -108,26 +110,37 @@ header {
   transform: rotate(-45deg) translate(4px, -4px);
 }
 
-/* ===== MOBILE RESPONSIVE ===== */
+/* ===== MOBILE VIEW (Responsive Fixes) ===== */
 @media (max-width: 900px) {
+  .navbar-container {
+    padding: 0.6rem 15px; /* 🔸 Even tighter margins for mobile */
+  }
+
+  .logo {
+    width: 150px;
+    margin-left: 3px;
+  }
+
+  .menu-toggle {
+    display: flex;
+    margin-right: 3px;
+  }
+
   .nav-links {
     display: none;
     flex-direction: column;
     position: absolute;
-    top: 70px;
+    top: 65px;
     left: 0;
     width: 100%;
     background: #0B0C10;
     border-top: 1px solid rgba(255, 215, 0, 0.2);
     text-align: center;
     padding: 1rem 0;
+    animation: slideDown 0.3s ease;
   }
 
   .nav-links.active {
-    display: flex;
-  }
-
-  .menu-toggle {
     display: flex;
   }
 
@@ -167,38 +180,72 @@ header {
   transform: rotate(-45deg) translate(5px, -5px);
 }
 
-
-/* ===== HERO SECTION (fixed spacing) ===== */
+/* ===== ENHANCED HERO SECTION ===== */
 .gemstone-hero {
   text-align: center;
-  padding: 6rem 2rem 4rem;
-  /* slightly reduced top padding */
-  background: linear-gradient(180deg, #0B0C10 0%, #1A1C25 100%);
+  padding: 10rem 2rem 7rem; /* increased height for grandeur */
+  background: radial-gradient(circle at center, #101218 0%, #0B0C10 70%);
   color: #FFD369;
   border-bottom: 1px solid rgba(212, 175, 55, 0.2);
-  margin-top: 10px;
-  /* reduced to match actual navbar height */
+  margin-top: 0;
+  position: relative;
+  overflow: hidden;
 }
 
+/* Subtle golden glow background overlay */
+.gemstone-hero::before {
+  content: "";
+  position: absolute;
+  top: -20%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120%;
+  height: 150%;
+  background: radial-gradient(circle at center, rgba(212, 175, 55, 0.1), transparent 70%);
+  z-index: 0;
+}
 
 .gemstone-hero h1 {
+  position: relative;
+  z-index: 1;
   font-family: 'Cinzel', serif;
-  font-size: 3rem;
+  font-size: 3.8rem; /* increased for a premium look */
   font-weight: 700;
   color: #FFD369;
-  text-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
-  margin-bottom: 1rem;
-  letter-spacing: 1px;
+  text-shadow: 0 0 25px rgba(212, 175, 55, 0.8);
+  margin-bottom: 1.5rem;
+  letter-spacing: 2px;
+  line-height: 1.3;
 }
 
 .gemstone-hero p {
-  font-size: 1.15rem;
+  position: relative;
+  z-index: 1;
+  font-size: 1.25rem;
   color: #d7bf6e;
-  max-width: 800px;
+  max-width: 900px;
   margin: 0 auto;
-  line-height: 1.7;
-  opacity: 0.9;
+  line-height: 1.8;
+  opacity: 0.95;
 }
+
+/* Smooth fade-up animation */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.gemstone-hero h1,
+.gemstone-hero p {
+  animation: fadeUp 1.2s ease forwards;
+}
+
 
 /* ===== GEMSTONE GRID SECTION ===== */
 .gemstone-list {
