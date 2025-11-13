@@ -147,7 +147,7 @@ header {
   .nav-links a {
     padding: 12px 0;
     font-size: 1.1rem;
-    color: #FFD700;
+    color: #f4f4f4;
   }
 }
 
@@ -245,6 +245,22 @@ header {
 .gemstone-hero p {
   animation: fadeUp 1.2s ease forwards;
 }
+
+/* Fix hero section going under mobile navbar */
+@media (max-width: 768px) {
+  .gemstone-hero {
+    padding-top: 12rem !important; /* increase top spacing for mobile */
+  }
+
+  .gemstone-hero h1 {
+    font-size: 2.2rem; /* reduce size so it fits nicely */
+  }
+
+  .gemstone-hero p {
+    font-size: 1rem;
+  }
+}
+
 
 
 /* ===== GEMSTONE GRID SECTION ===== */
