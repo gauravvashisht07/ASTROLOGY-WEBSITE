@@ -79,29 +79,84 @@ body {
 }
 
 
-/* ===== HERO SECTION ===== */
+/* ===== CELESTIAL HERO SECTION ===== */
 .celestial-hero {
   text-align: center;
-  padding: 9rem 2rem 5rem;
+  padding: 9rem 2rem 6rem;
   background: radial-gradient(circle at center, #101218 0%, #0B0C10 100%);
-  color: #FFD369;
+  position: relative;
+  overflow: hidden;
   color: #D4AF37;
 }
 
-.celestial-hero h1 {
-  font-family: 'Cinzel', serif;
-  font-size: 2.8rem;
-  text-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
-  margin-bottom: 1rem;
+/* Subtle golden glow background overlay (same effect as gemstone page) */
+.celestial-hero::before {
+  content: "";
+  position: absolute;
+  top: -20%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 130%;
+  height: 150%;
+  background: radial-gradient(circle at center, rgba(212, 175, 55, 0.12), transparent 75%);
+  z-index: 0;
 }
 
-.celestial-hero p {
-  font-size: 1.1rem;
-  color: #d7bf6e;
-  max-width: 800px;
-  margin: 0 auto;
-  line-height: 1.7;
+/* Dynamic fade-up animation */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
+
+/* Headline */
+.celestial-hero h1 {
+  position: relative;
+  z-index: 1;
+  font-family: 'Cinzel', serif;
+  font-size: 3.2rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-shadow: 0 0 25px rgba(162, 112, 255, 0.8); /* purple glow */
+  margin-bottom: 1.5rem;
+  animation: fadeUp 1.2s ease forwards;
+  color: #D4AF37;
+}
+
+/* Subtext */
+.celestial-hero p {
+  position: relative;
+  z-index: 1;
+  font-size: 1.2rem;
+  max-width: 850px;
+  margin: 0 auto;
+  line-height: 1.8;
+  color: #d7bf6e;
+  opacity: 0.95;
+  animation: fadeUp 1.4s ease forwards;
+}
+
+
+/* ===== MOBILE FIX ===== */
+@media (max-width: 768px) {
+  .celestial-hero {
+    padding-top: 12rem;
+  }
+
+  .celestial-hero h1 {
+    font-size: 2.2rem;
+  }
+
+  .celestial-hero p {
+    font-size: 1rem;
+  }
+}
+
 
 /* ===== CASE GRID ===== */
 .case-list {
